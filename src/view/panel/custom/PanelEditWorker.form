@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+        <TitledBorder title="Edit worker"/>
+      </Border>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="panelWorkerBirthdate" pref="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerID" alignment="0" pref="394" max="32767" attributes="0"/>
+                  <Component id="panelWorkerName" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerSurname" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerAddress" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerTelephone" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerAdmin" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelWorkerUsername" max="32767" attributes="0"/>
+                  <Component id="panelWorkerPassword" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="panelWorkerID" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerSurname" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerBirthdate" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerAddress" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerTelephone" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerAdmin" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerUsername" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelWorkerPassword" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerID">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerName">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerSurname">
+    </Component>
+    <Component class="view.panel.components.PanelLDPS" name="panelWorkerBirthdate">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerAddress">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerTelephone">
+    </Component>
+    <Component class="view.panel.components.PanelLRBS" name="panelWorkerAdmin">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerUsername">
+    </Component>
+    <Component class="view.panel.components.PanelLTFS" name="panelWorkerPassword">
+    </Component>
+  </SubComponents>
+</Form>
