@@ -114,7 +114,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblWorkerLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user20px.png"))); // NOI18N
 
-        lblWorkerName.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblWorkerName.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lblWorkerName.setForeground(new java.awt.Color(255, 255, 255));
         lblWorkerName.setText("label:");
 
@@ -125,7 +125,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             }
         });
 
-        lblExitLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblExitLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblExitLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblExitLogoText.setText("label");
 
@@ -167,7 +167,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblClientsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clients30px.png"))); // NOI18N
 
-        lblClientsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblClientsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblClientsLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblClientsLogoText.setText("label");
 
@@ -207,7 +207,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblMedicalReportsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/medicalhistory30px.png"))); // NOI18N
 
-        lblMedicalReportsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMedicalReportsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblMedicalReportsLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblMedicalReportsLogoText.setText("label");
 
@@ -246,7 +246,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblBillsLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bills30px.png"))); // NOI18N
 
-        lblBillsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblBillsLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblBillsLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblBillsLogoText.setText("label");
 
@@ -286,7 +286,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblStorageLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/storage30px.png"))); // NOI18N
 
-        lblStorageLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblStorageLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblStorageLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblStorageLogoText.setText("label");
 
@@ -324,7 +324,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         lblWorkersLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/admin30px.png"))); // NOI18N
 
-        lblWorkersLogoText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblWorkersLogoText.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblWorkersLogoText.setForeground(new java.awt.Color(255, 255, 255));
         lblWorkersLogoText.setText("label");
 
@@ -400,7 +400,6 @@ public class FrmMainWork extends javax.swing.JFrame {
         btnDelete.setBorderPainted(false);
         btnDelete.setContentAreaFilled(false);
         btnDelete.setFocusPainted(false);
-        btnDelete.setOpaque(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -429,7 +428,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         horizontalPanel.setBackground(new java.awt.Color(79, 88, 133));
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("label:");
 
