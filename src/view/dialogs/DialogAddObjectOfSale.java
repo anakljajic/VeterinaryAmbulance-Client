@@ -10,6 +10,7 @@ import domain.DomainObject;
 import domain.PredmetProdaje;
 import domain.StavkaRacuna;
 import domain.iFrmValue;
+import java.awt.Color;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import listeners.ItemOfBillChooseListener;
  * @author anakl
  */
 public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmValue, ChooseListener {
-
+    
     private BigDecimal totalPriceWithTax = new BigDecimal(0);
     private BigDecimal totalPriceNoTax = new BigDecimal(0);
     private int amount = 0;
@@ -35,8 +36,9 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
     public DialogAddObjectOfSale(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         prepareView();
-
+        
     }
 
     /**
@@ -59,9 +61,17 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        btnClear.setBackground(new java.awt.Color(47, 60, 127));
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Clear");
+        btnClear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnClear.setFocusPainted(false);
 
+        btnAdd.setBackground(new java.awt.Color(47, 60, 127));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAdd.setFocusPainted(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -75,22 +85,19 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 20, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelObjectOfSalePriceTax, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelObjectOfSalePriceTax, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(panelObjectOfSaleName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panelObjectOfSalePriceNoTax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panelObjectOfSaleTax, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelObjectOfSaleAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(panelObjectOfSaleName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelObjectOfSalePriceNoTax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelObjectOfSaleTax, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelObjectOfSaleAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,8 +118,8 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
                     .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear)
-                    .addComponent(btnAdd))
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,8 +157,9 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceTax.setEnabled(false);
         panelObjectOfSaleTax.setEnabled(false);
         panelSearchObjectOfSale.addChooseListener(this);
+        this.getContentPane().setBackground(Color.WHITE);
     }
-
+    
     @Override
     public Object getValue() {
         StavkaRacuna sr = new StavkaRacuna();
@@ -167,7 +175,7 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         sr.setUkupnaCenaSaPorezom(totalPriceWithTax.multiply(BigDecimal.valueOf(amount)));
         return sr;
     }
-
+    
     @Override
     public void setValue(Object object) {
         PredmetProdaje pp = (PredmetProdaje) object;
@@ -175,9 +183,9 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceNoTax.setValue(pp.getCenaBezPoreza() + "");
         panelObjectOfSalePriceTax.setValue(pp.getCenaSaPorezom());
         panelObjectOfSaleTax.setValue(pp.getPoreskaStopa());
-
+        
     }
-
+    
     public void clearPanel() {
         panelObjectOfSaleAmount.clearPanel();
         panelObjectOfSaleName.clearPanel();
@@ -186,11 +194,11 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSaleTax.clearPanel();
         prepareView();
     }
-
+    
     public void addListener(ItemOfBillChooseListener toAdd) {
         itemOfBillChooseListeners.add(toAdd);
     }
-
+    
     @Override
     public void onChooseOdo(DomainObject odo) throws Exception {
         predmet = (PredmetProdaje) odo;
@@ -199,7 +207,7 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceTax.setValue(predmet.getCenaSaPorezom() + "");
         panelObjectOfSaleTax.setValue(predmet.getPoreskaStopa().getVrednost() + "");
     }
-
+    
     public void chooseItemOfBill(StavkaRacuna stavkaRacuna) {
         for (ItemOfBillChooseListener itemOfBillChooseListener : itemOfBillChooseListeners) {
             itemOfBillChooseListener.onChooseItemOfBill(stavkaRacuna);

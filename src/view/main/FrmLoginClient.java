@@ -65,23 +65,26 @@ public class FrmLoginClient extends javax.swing.JFrame {
 
         lblLogoText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblLogoText.setForeground(new java.awt.Color(47, 60, 126));
-        lblLogoText.setText("L O L A ' s");
+        lblLogoText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogoText.setText("V E T E R I N A R S K A");
 
         lblLogoTextSmaller.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblLogoTextSmaller.setForeground(new java.awt.Color(47, 60, 126));
-        lblLogoTextSmaller.setText("Vet ambulance");
+        lblLogoTextSmaller.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogoTextSmaller.setText("A M B U L A N T A");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblLogoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLogoText)
-                    .addComponent(lblLogoTextSmaller))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
+            .addComponent(lblLogoTextSmaller, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +110,9 @@ public class FrmLoginClient extends javax.swing.JFrame {
         });
 
         txtUsername.setBackground(new java.awt.Color(47, 60, 126));
+        txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsername.setText("Username");
         txtUsername.setBorder(null);
         txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -117,7 +122,9 @@ public class FrmLoginClient extends javax.swing.JFrame {
         });
 
         txtPassword.setBackground(new java.awt.Color(47, 60, 126));
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPassword.setText("Password");
         txtPassword.setBorder(null);
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -131,6 +138,7 @@ public class FrmLoginClient extends javax.swing.JFrame {
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/password20px.png"))); // NOI18N
 
         btnPrijaviSe.setBackground(new java.awt.Color(255, 255, 255));
+        btnPrijaviSe.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnPrijaviSe.setForeground(new java.awt.Color(255, 255, 255));
         btnPrijaviSe.setText("Prijavi se");
         btnPrijaviSe.setFocusPainted(false);
@@ -142,6 +150,7 @@ public class FrmLoginClient extends javax.swing.JFrame {
         });
 
         btnOdustani.setBackground(new java.awt.Color(255, 255, 255));
+        btnOdustani.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnOdustani.setForeground(new java.awt.Color(255, 255, 255));
         btnOdustani.setText("Odustani");
         btnOdustani.setFocusPainted(false);
@@ -152,39 +161,36 @@ public class FrmLoginClient extends javax.swing.JFrame {
             }
         });
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("Dobrodošli!");
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
+                .addContainerGap(396, Short.MAX_VALUE)
+                .addComponent(lblExit)
+                .addGap(18, 18, 18))
+            .addComponent(lblWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(rightPanelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(63, 63, 63)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsername)
                     .addComponent(lblPassword))
                 .addGap(18, 18, 18)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addComponent(btnPrijaviSe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(btnOdustani))
+                        .addComponent(btnPrijaviSe, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtUsername)
                     .addComponent(txtPassword)
                     .addComponent(separator1)
                     .addComponent(separator2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                        .addComponent(lblWelcome)
-                        .addGap(125, 125, 125))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                        .addComponent(lblExit)
-                        .addGap(18, 18, 18))))
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,12 +198,10 @@ public class FrmLoginClient extends javax.swing.JFrame {
                 .addComponent(lblExit)
                 .addGap(24, 24, 24)
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addGap(0, 1, Short.MAX_VALUE)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -208,9 +212,9 @@ public class FrmLoginClient extends javax.swing.JFrame {
                 .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrijaviSe)
-                    .addComponent(btnOdustani))
-                .addGap(224, 224, 224))
+                    .addComponent(btnPrijaviSe, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOdustani, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(192, 192, 192))
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);

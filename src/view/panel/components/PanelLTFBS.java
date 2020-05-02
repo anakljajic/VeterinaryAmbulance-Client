@@ -48,7 +48,10 @@ public class PanelLTFBS extends javax.swing.JPanel implements iFrmValue {
 
         label.setText("label:");
 
+        button.setBackground(new java.awt.Color(47, 60, 127));
+        button.setForeground(new java.awt.Color(255, 255, 255));
         button.setText("button");
+        button.setFocusPainted(false);
         button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonActionPerformed(evt);

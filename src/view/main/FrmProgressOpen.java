@@ -5,17 +5,29 @@
  */
 package view.main;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import threads.ProgressThread;
+
 /**
  *
  * @author anakl
  */
 public class FrmProgressOpen extends javax.swing.JFrame {
 
+    private ProgressThread progressThread;
+
     /**
      * Creates new form FrmProgressOpen
      */
     public FrmProgressOpen() {
         initComponents();
+        setLocationRelativeTo(null);
+        progressThread = new ProgressThread(progressBar, this, lblLoadingValue);
+        progressThread.start();
+        prepareView();
     }
 
     /**
@@ -29,48 +41,66 @@ public class FrmProgressOpen extends javax.swing.JFrame {
 
         panelBackground = new javax.swing.JPanel();
         progressBar = new javax.swing.JProgressBar();
-        lblLogo = new javax.swing.JLabel();
+        lblLoadingValue = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        panelBackground.setBackground(new java.awt.Color(251, 234, 235));
+        panelBackground.setBackground(new java.awt.Color(47, 60, 127));
 
-        progressBar.setBackground(new java.awt.Color(251, 234, 235));
+        progressBar.setBackground(new java.awt.Color(47, 60, 127));
+        progressBar.setForeground(new java.awt.Color(251, 234, 235));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_pets_127px.png"))); // NOI18N
+        lblLoadingValue.setBackground(new java.awt.Color(47, 60, 127));
+        lblLoadingValue.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLoadingValue.setForeground(new java.awt.Color(251, 234, 235));
+        lblLoadingValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLoadingValue.setText("99%");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(47, 60, 126));
-        jLabel1.setText("Lola's vet ambulance");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoProgress127px.png"))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(251, 234, 235));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("V E T E R I N A R S K A");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(251, 234, 235));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("A M B U L A N T A");
 
         javax.swing.GroupLayout panelBackgroundLayout = new javax.swing.GroupLayout(panelBackground);
         panelBackground.setLayout(panelBackgroundLayout);
         panelBackgroundLayout.setHorizontalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBackgroundLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelBackgroundLayout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 302, Short.MAX_VALUE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(progressBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblLoadingValue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
-                .addComponent(lblLogo)
-                .addGap(18, 18, 18)
+                .addGap(104, 104, 104)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblLoadingValue, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,12 +117,25 @@ public class FrmProgressOpen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lblLoadingValue;
     private javax.swing.JPanel panelBackground;
-    private javax.swing.JProgressBar progressBar;
+    public javax.swing.JProgressBar progressBar;
     // End of variables declaration//GEN-END:variables
+
+    private void prepareView() {
+
+//        txtServer.setVisible(false);
+        URL imageUrl = ClassLoader.getSystemResource("img/logoLogin95px.png");
+        ImageIcon imageIcon = new ImageIcon(imageUrl);
+        setIconImage(imageIcon.getImage());
+
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dimension.width / 2 - this.getSize().width / 2, dimension.height / 2 - this.getSize().height / 2);
+
+    }
 }

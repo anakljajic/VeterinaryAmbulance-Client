@@ -6,6 +6,7 @@
 package main;
 
 import view.main.FrmLoginClient;
+import view.main.FrmProgressOpen;
 
 /**
  *
@@ -14,8 +15,8 @@ import view.main.FrmLoginClient;
 public class Main {
 
     public static void main(String[] args) {
-//        FrmProgress frm = new FrmProgress();
-        FrmLoginClient frm = new FrmLoginClient();
+        FrmProgressOpen frm = new FrmProgressOpen();
+//        FrmLoginClient frm = new FrmLoginClient();
 //        Radnik radnik = new Radnik();
 //        FrmMainWork frm = new FrmMainWork(radnik);
         frm.setVisible(true);

@@ -10,6 +10,7 @@ import domain.DomainObject;
 import domain.Klijent;
 import domain.Zivotinja;
 import domain.iFrmValue;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -57,7 +58,11 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        btnSavePet.setBackground(new java.awt.Color(47, 60, 127));
+        btnSavePet.setForeground(new java.awt.Color(255, 255, 255));
         btnSavePet.setText("Sačuvaj");
+        btnSavePet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnSavePet.setFocusPainted(false);
         btnSavePet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSavePetActionPerformed(evt);
@@ -81,7 +86,7 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSavePet)
+                .addComponent(btnSavePet, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -112,7 +117,8 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
     private void prepareView() {
         panelAddAnimal.preparePanel();
         panelAddAnimal.addListener(this);
-        panelAddAnimal.getPanelAnimalClientID().setElementText("Sifra klijenta", klijent.getKlijentID() + "");
+        panelAddAnimal.getPanelAnimalClientID().setElementText("Šifra klijenta", klijent.getKlijentID() + "");
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     @Override

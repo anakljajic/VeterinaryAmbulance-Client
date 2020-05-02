@@ -9,6 +9,7 @@ import controller.CommunicationController;
 import domain.DomainObject;
 import domain.Klijent;
 import domain.Zivotinja;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -55,30 +56,80 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        btnClearClient.setText("Clear");
+        btnClearClient.setBackground(new java.awt.Color(47, 60, 127));
+        btnClearClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnClearClient.setText("Izbriši");
+        btnClearClient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnClearClient.setFocusPainted(false);
+        btnClearClient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnClearClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearClientActionPerformed(evt);
             }
         });
 
-        btnAddClient.setText("Add");
+        btnAddClient.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddClient.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnAddClient.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddClient.setText("Dodaj klijenta");
+        btnAddClient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAddClient.setFocusPainted(false);
+        btnAddClient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnAddClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddClientActionPerformed(evt);
             }
         });
 
-        panelAddClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Add client"));
+        panelAddClient.setBackground(new java.awt.Color(255, 255, 255));
+        panelAddClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Dodaj klijenta"));
 
-        btnClearAnimal.setText("Clear");
+        btnClearAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnClearAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        btnClearAnimal.setText("Izbriši");
+        btnClearAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnClearAnimal.setFocusPainted(false);
+        btnClearAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnClearAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearAnimalActionPerformed(evt);
             }
         });
 
-        btnAddAnimal.setText("Add");
+        btnAddAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddAnimal.setText("Dodaj životinju");
+        btnAddAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAddAnimal.setFocusPainted(false);
+        btnAddAnimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnAddAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddAnimalActionPerformed(evt);
@@ -93,13 +144,13 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClearClient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
-                        .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClearClient, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
+                        .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClearAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnClearAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -115,10 +166,10 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
                     .addComponent(panelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddClient)
-                    .addComponent(btnClearClient)
-                    .addComponent(btnClearAnimal)
-                    .addComponent(btnAddAnimal))
+                    .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearClient, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -164,6 +215,44 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         }
     }//GEN-LAST:event_btnAddAnimalActionPerformed
 
+    private void btnGroupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseEntered
+        if (evt.getSource() == btnAddAnimal) {
+            btnAddAnimal.setContentAreaFilled(true);
+            btnAddAnimal.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnAddClient) {
+            btnAddClient.setContentAreaFilled(true);
+            btnAddClient.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnClearAnimal) {
+            btnClearAnimal.setContentAreaFilled(true);
+            btnClearAnimal.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnClearClient) {
+            btnClearClient.setContentAreaFilled(true);
+            btnClearClient.setBackground(new Color(26, 36, 87));
+        }
+    }//GEN-LAST:event_btnGroupMouseEntered
+
+    private void btnGroupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseExited
+        if (evt.getSource() == btnAddAnimal) {
+            btnAddAnimal.setContentAreaFilled(true);
+            btnAddAnimal.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnAddClient) {
+            btnAddClient.setContentAreaFilled(true);
+            btnAddClient.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnClearAnimal) {
+            btnClearAnimal.setContentAreaFilled(true);
+            btnClearAnimal.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnClearClient) {
+            btnClearClient.setContentAreaFilled(true);
+            btnClearClient.setBackground(new Color(47, 60, 127));
+        }
+    }//GEN-LAST:event_btnGroupMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddAnimal;
@@ -179,6 +268,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         panelAddClient.addListener(this);
         panelAddAnimal.preparePanel();
         panelAddAnimal.addListener(this);
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     public void clearPanel() {
@@ -191,8 +281,8 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         try {
 
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-            
-            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName()+" !",
+
+            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE
             );
             btnAddClient.setEnabled(true);

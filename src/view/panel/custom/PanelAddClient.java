@@ -103,9 +103,9 @@ public class PanelAddClient extends javax.swing.JPanel implements iFrmValue, Cus
     public void preparePanel() {
         panelClientID.addListener(this);
         panelClientID.getTextField().setEnabled(false);
-        panelClientID.setElementText("Generisi", "Sifra klijenta", "");
+        panelClientID.setElementText("Generiši", "Šifra klijenta", "");
         panelClientAddress.setElementText("Adresa", "");
-        panelClientBirthdate.setElementText("Datum rodjenja", new Date());
+        panelClientBirthdate.setElementText("Datum rođenja", new Date());
         panelClientCity.setElementText("Grad", "");
         panelClientName.setElementText("Ime", "");
         panelClientSurname.setElementText("Prezime", "");

@@ -10,6 +10,7 @@ import domain.DomainObject;
 import domain.Klijent;
 import domain.Zivotinja;
 import events.ClickButtonEvent;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -25,7 +26,7 @@ import view.panel.custom.PanelAddClient;
  * @author anakl
  */
 public class DialogEditClient extends javax.swing.JDialog {
-
+    
     private Klijent klijent;
 
     /**
@@ -59,28 +60,40 @@ public class DialogEditClient extends javax.swing.JDialog {
 
         panelEditClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit client"));
 
-        btnExit.setText("Exit");
+        btnExit.setBackground(new java.awt.Color(47, 60, 127));
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Odustani");
+        btnExit.setFocusPainted(false);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("Save");
+        btnUpdate.setBackground(new java.awt.Color(47, 60, 127));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Sačuvaj klijenta");
+        btnUpdate.setFocusPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnAddAnimal.setText("Add");
+        btnAddAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddAnimal.setText("Dodaj životinju");
+        btnAddAnimal.setFocusPainted(false);
         btnAddAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddAnimalActionPerformed(evt);
             }
         });
 
-        btnEditAnimal.setText("Edit");
+        btnEditAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnEditAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditAnimal.setText("Izmeni životinju");
+        btnEditAnimal.setFocusPainted(false);
         btnEditAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditAnimalActionPerformed(evt);
@@ -94,15 +107,15 @@ public class DialogEditClient extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelEditClient, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelSearchClientsPet, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -114,10 +127,10 @@ public class DialogEditClient extends javax.swing.JDialog {
                     .addComponent(panelSearchClientsPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnAddAnimal)
-                    .addComponent(btnEditAnimal))
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -136,7 +149,7 @@ public class DialogEditClient extends javax.swing.JDialog {
                     + " " + klijent.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditClient.clearPanel();
             dispose();
-
+            
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -166,6 +179,7 @@ public class DialogEditClient extends javax.swing.JDialog {
         panelEditClient.setValue(klijent);
         panelSearchClientsPet.preparePanel();
         panelSearchClientsPet.setTableData(klijent.getKlijentID());
+        this.getContentPane().setBackground(Color.white);
     }
-
+    
 }

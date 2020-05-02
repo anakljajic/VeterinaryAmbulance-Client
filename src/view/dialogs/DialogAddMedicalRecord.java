@@ -10,6 +10,7 @@ import domain.DomainObject;
 import domain.Karton;
 import domain.Radnik;
 import domain.Zivotinja;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,14 +62,38 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnExit.setText("Exit");
+        btnExit.setBackground(new java.awt.Color(47, 60, 127));
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Izbriši");
+        btnExit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnExit.setFocusPainted(false);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
 
-        btnAddMedicalRecord.setText("Add");
+        btnAddMedicalRecord.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddMedicalRecord.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddMedicalRecord.setText("Sačuvaj karton");
+        btnAddMedicalRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAddMedicalRecord.setFocusPainted(false);
+        btnAddMedicalRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnAddMedicalRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMedicalRecordActionPerformed(evt);
@@ -85,9 +110,9 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
                 .addComponent(panelAddMedicalRecord, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddMedicalRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddMedicalRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -98,8 +123,8 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
                     .addComponent(panelSearchPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit)
-                    .addComponent(btnAddMedicalRecord))
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddMedicalRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -125,6 +150,28 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
             Logger.getLogger(DialogAddMedicalRecord.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddMedicalRecordActionPerformed
+
+    private void btnGroupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseEntered
+        if (evt.getSource() == btnAddMedicalRecord) {
+            btnAddMedicalRecord.setContentAreaFilled(true);
+            btnAddMedicalRecord.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnExit) {
+            btnExit.setContentAreaFilled(true);
+            btnExit.setBackground(new Color(26, 36, 87));
+        }
+    }//GEN-LAST:event_btnGroupMouseEntered
+
+    private void btnGroupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseExited
+        if (evt.getSource() == btnAddMedicalRecord) {
+            btnAddMedicalRecord.setContentAreaFilled(true);
+            btnAddMedicalRecord.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnAddMedicalRecord) {
+            btnExit.setContentAreaFilled(true);
+            btnExit.setBackground(new Color(47, 60, 127));
+        }
+    }//GEN-LAST:event_btnGroupMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

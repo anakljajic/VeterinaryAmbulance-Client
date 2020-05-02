@@ -8,6 +8,7 @@ package view.dialogs;
 import controller.ClientController;
 import domain.DomainObject;
 import domain.Karton;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import listeners.ChooseListener;
@@ -18,7 +19,7 @@ import listeners.MedicalRecordChooseListener;
  * @author anakl
  */
 public class DialogChooseMedicalRecord extends javax.swing.JDialog implements ChooseListener {
-
+    
     private Karton karton;
     private List<MedicalRecordChooseListener> medicalRecordChooseListeners = new ArrayList<>();
 
@@ -28,6 +29,7 @@ public class DialogChooseMedicalRecord extends javax.swing.JDialog implements Ch
     public DialogChooseMedicalRecord(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         prepareView();
     }
 
@@ -45,7 +47,11 @@ public class DialogChooseMedicalRecord extends javax.swing.JDialog implements Ch
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        btnPotvrdi.setBackground(new java.awt.Color(47, 60, 127));
+        btnPotvrdi.setForeground(new java.awt.Color(255, 255, 255));
         btnPotvrdi.setText("Potvrdi");
+        btnPotvrdi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnPotvrdi.setFocusPainted(false);
         btnPotvrdi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPotvrdiActionPerformed(evt);
@@ -67,7 +73,7 @@ public class DialogChooseMedicalRecord extends javax.swing.JDialog implements Ch
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPotvrdi)
+                .addComponent(btnPotvrdi, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -88,17 +94,18 @@ public class DialogChooseMedicalRecord extends javax.swing.JDialog implements Ch
     private void prepareView() {
         panelSearchMedicalRecords.preparePanel();
         panelSearchMedicalRecords.addListener(this);
+        this.getContentPane().setBackground(Color.white);
     }
-
+    
     public void addListener(MedicalRecordChooseListener toAdd) {
         medicalRecordChooseListeners.add(toAdd);
     }
-
+    
     @Override
     public void onChooseOdo(DomainObject odo) throws Exception {
         karton = (Karton) odo;
     }
-
+    
     public void chooseMedicalRecord() {
         for (MedicalRecordChooseListener medicalRecordChooseListener : medicalRecordChooseListeners) {
             medicalRecordChooseListener.chooseMedicalRecord(karton);

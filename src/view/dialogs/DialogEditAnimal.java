@@ -8,6 +8,7 @@ package view.dialogs;
 import controller.CommunicationController;
 import domain.Klijent;
 import domain.Zivotinja;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author anakl
  */
 public class DialogEditAnimal extends javax.swing.JDialog {
-
+    
     private Zivotinja zivotinja;
     private Klijent klijent;
 
@@ -31,7 +32,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
         this.zivotinja = zivotinja;
         prepareView();
     }
-
+    
     public DialogEditAnimal(Zivotinja zivotinja, Klijent klijent) {
         initComponents();
         setLocationRelativeTo(null);
@@ -54,7 +55,10 @@ public class DialogEditAnimal extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnSaveAnimal.setText("Save");
+        btnSaveAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnSaveAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveAnimal.setText("Sačuvaj");
+        btnSaveAnimal.setFocusPainted(false);
         btnSaveAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveAnimalActionPerformed(evt);
@@ -76,8 +80,8 @@ public class DialogEditAnimal extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelEditAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSaveAnimal)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addComponent(btnSaveAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,7 +94,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
             zivotinja = (Zivotinja) CommunicationController.getInstance().updateDomainObject(zivotinja);
             JOptionPane.showMessageDialog(null, "Uspesno izmenjen ljubimac " + zivotinja.getIme()
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-
+            
             panelEditAnimal.clearPanel();
             btnSaveAnimal.setEnabled(false);
         } catch (Exception ex) {
@@ -107,6 +111,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
     private void prepareView() {
         panelEditAnimal.preparePanel();
         panelEditAnimal.setValue(zivotinja);
+        this.getContentPane().setBackground(Color.WHITE);
     }
     
 }

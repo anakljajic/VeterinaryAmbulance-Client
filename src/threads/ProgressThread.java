@@ -5,11 +5,8 @@
  */
 package threads;
 
-import java.awt.Color;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import view.main.FrmLoginClient;
 
@@ -21,13 +18,15 @@ public class ProgressThread extends Thread {
 
     private JProgressBar progressBar;
     private JFrame frame;
+    private JLabel valueProgress;
     private int value;
     private int i;
 //    private boolean signal = true;
 
-    public ProgressThread(JProgressBar progressBar, JFrame frame) {
+    public ProgressThread(JProgressBar progressBar, JFrame frame, JLabel valueProgress) {
         this.progressBar = progressBar;
         this.frame = frame;
+        this.valueProgress = valueProgress;
     }
 
     @Override
@@ -44,20 +43,24 @@ public class ProgressThread extends Thread {
             try {
                 // set text accoring to the level to which the bar is filled
                 if (i > 30 && i < 70) {
-                    progressBar.setString("wait a bit");
+                    valueProgress.setText(Integer.toString(i) + "%");
+                    progressBar.setValue(i);
                 } else if (i > 70) {
-                    progressBar.setString("almost finished loading");
+                    valueProgress.setText(Integer.toString(i) + "%");
+                    progressBar.setValue(i);
+                } else if (i > 90 && i < 100) {
+                    i = 100;
+                    valueProgress.setText(Integer.toString(i) + "%");
+                    progressBar.setValue(i);
                 } else {
-                    progressBar.setString("loading started");
-
+                    valueProgress.setText(Integer.toString(i) + "%");
+                    progressBar.setValue(i);
                 }
 
-                // fill the menu bar
-                progressBar.setValue(i + 10);
+                progressBar.setValue(i + 14);
 
-                // delay the thread
                 Thread.sleep(1500);
-                i += 20;
+                i += 13;
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

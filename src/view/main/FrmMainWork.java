@@ -158,7 +158,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        sidePanelClients.setBackground(new java.awt.Color(85, 65, 118));
+        sidePanelClients.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 sidePanelElementsMousePressed(evt);
@@ -366,10 +366,10 @@ public class FrmMainWork extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(lblWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sidePanelBills, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(sidePanelStorage, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(sidePanelWorkers, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(sidePanelExit, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(sidePanelBills, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         sidePanelLayout.setVerticalGroup(
@@ -397,6 +397,9 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete30px.png"))); // NOI18N
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
+        btnDelete.setFocusPainted(false);
         btnDelete.setOpaque(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,6 +408,9 @@ public class FrmMainWork extends javax.swing.JFrame {
         });
 
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit30px.png"))); // NOI18N
+        btnEdit.setBorderPainted(false);
+        btnEdit.setContentAreaFilled(false);
+        btnEdit.setFocusPainted(false);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -412,6 +418,9 @@ public class FrmMainWork extends javax.swing.JFrame {
         });
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add30px.png"))); // NOI18N
+        btnAdd.setBorderPainted(false);
+        btnAdd.setContentAreaFilled(false);
+        btnAdd.setFocusPainted(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -457,7 +466,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelClientsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelMedicalRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -476,7 +485,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelBills.setBackground(new java.awt.Color(255, 255, 255));
@@ -495,7 +504,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelBillsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelStorage.setBackground(new java.awt.Color(255, 255, 255));
@@ -514,7 +523,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelStorageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelWorkers.setBackground(new java.awt.Color(255, 255, 255));
@@ -533,7 +542,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelWorkersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         panelWelcome.setBackground(new java.awt.Color(255, 255, 255));
@@ -551,7 +560,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         );
         panelWelcomeLayout.setVerticalGroup(
             panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
         );
 
         layeredPane.setLayer(panelClients, javax.swing.JLayeredPane.DEFAULT_LAYER);

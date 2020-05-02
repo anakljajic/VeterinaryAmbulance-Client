@@ -10,6 +10,7 @@ import domain.DomainObject;
 import domain.Racun;
 import domain.Radnik;
 import domain.StavkaRacuna;
+import java.awt.Color;
 import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +87,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         jScrollPane1.setViewportView(tableBillItems);
 
         btnAddItem.setText("Dodaj stavku");
+        btnAddItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddItemActionPerformed(evt);
@@ -93,6 +102,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         });
 
         btnClearItem.setText("Izbriši stavku");
+        btnClearItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnClearItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearItemActionPerformed(evt);
@@ -100,6 +117,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         });
 
         btnClear.setText("Obriši račun");
+        btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
@@ -107,6 +132,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         });
 
         btnAdd.setText("Sačuvaj račun");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGroupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGroupMouseExited(evt);
+            }
+        });
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -186,6 +219,44 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clearPanel();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnGroupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseEntered
+        if (evt.getSource() == btnAdd) {
+            btnAdd.setContentAreaFilled(true);
+            btnAdd.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnAddItem) {
+            btnAddItem.setContentAreaFilled(true);
+            btnAddItem.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnClear) {
+            btnClear.setContentAreaFilled(true);
+            btnClear.setBackground(new Color(26, 36, 87));
+        }
+        if (evt.getSource() == btnClearItem) {
+            btnClearItem.setContentAreaFilled(true);
+            btnClearItem.setBackground(new Color(26, 36, 87));
+        }
+    }//GEN-LAST:event_btnGroupMouseEntered
+
+    private void btnGroupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGroupMouseExited
+        if (evt.getSource() == btnAdd) {
+            btnAdd.setContentAreaFilled(true);
+            btnAdd.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnAddItem) {
+            btnAddItem.setContentAreaFilled(true);
+            btnAddItem.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnClear) {
+            btnClear.setContentAreaFilled(true);
+            btnClear.setBackground(new Color(47, 60, 127));
+        }
+        if (evt.getSource() == btnClearItem) {
+            btnClearItem.setContentAreaFilled(true);
+            btnClearItem.setBackground(new Color(47, 60, 127));
+        }
+    }//GEN-LAST:event_btnGroupMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
