@@ -51,7 +51,6 @@ public class FrmLoginClient extends javax.swing.JFrame {
         separator2 = new javax.swing.JSeparator();
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        lblZaborav = new javax.swing.JLabel();
         btnPrijaviSe = new javax.swing.JButton();
         btnOdustani = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
@@ -131,12 +130,10 @@ public class FrmLoginClient extends javax.swing.JFrame {
 
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/password20px.png"))); // NOI18N
 
-        lblZaborav.setForeground(new java.awt.Color(255, 255, 255));
-        lblZaborav.setText("Zaboravljen username/password?");
-
         btnPrijaviSe.setBackground(new java.awt.Color(255, 255, 255));
         btnPrijaviSe.setForeground(new java.awt.Color(255, 255, 255));
         btnPrijaviSe.setText("Prijavi se");
+        btnPrijaviSe.setFocusPainted(false);
         btnPrijaviSe.setOpaque(false);
         btnPrijaviSe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +144,7 @@ public class FrmLoginClient extends javax.swing.JFrame {
         btnOdustani.setBackground(new java.awt.Color(255, 255, 255));
         btnOdustani.setForeground(new java.awt.Color(255, 255, 255));
         btnOdustani.setText("Odustani");
+        btnOdustani.setFocusPainted(false);
         btnOdustani.setOpaque(false);
         btnOdustani.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,11 +177,8 @@ public class FrmLoginClient extends javax.swing.JFrame {
                     .addComponent(separator2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
-                        .addComponent(lblZaborav)
-                        .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightPanelLayout.createSequentialGroup()
                         .addComponent(lblWelcome)
                         .addGap(125, 125, 125))
@@ -201,7 +196,7 @@ public class FrmLoginClient extends javax.swing.JFrame {
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(rightPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 1, Short.MAX_VALUE)
                         .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,9 +210,7 @@ public class FrmLoginClient extends javax.swing.JFrame {
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrijaviSe)
                     .addComponent(btnOdustani))
-                .addGap(71, 71, 71)
-                .addComponent(lblZaborav)
-                .addGap(139, 139, 139))
+                .addGap(224, 224, 224))
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -292,7 +285,6 @@ public class FrmLoginClient extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JLabel lblZaborav;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel rightPanel;

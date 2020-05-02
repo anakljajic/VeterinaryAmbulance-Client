@@ -68,6 +68,9 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         tableBillItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,28 +85,28 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         ));
         jScrollPane1.setViewportView(tableBillItems);
 
-        btnAddItem.setText("Add item");
+        btnAddItem.setText("Dodaj stavku");
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddItemActionPerformed(evt);
             }
         });
 
-        btnClearItem.setText("Clear item");
+        btnClearItem.setText("Izbriši stavku");
         btnClearItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearItemActionPerformed(evt);
             }
         });
 
-        btnClear.setText("Clear");
+        btnClear.setText("Obriši račun");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
 
-        btnAdd.setText("Save");
+        btnAdd.setText("Sačuvaj račun");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);

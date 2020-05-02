@@ -59,7 +59,8 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         panelMedicalRecordWorker = new view.panel.components.PanelLTFS();
         panelMedicalRecordAnimalID = new view.panel.components.PanelLTFS();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Add medical record"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Dodaj karton"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,11 +105,11 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
     public void preparePanel() {
         panelMedicalRecordID.addListener(this);
         panelMedicalRecordID.getTextField().setEnabled(false);
-        panelMedicalRecordID.setElementText("Generisi", "Sifra kartona", "");
-        panelMedicalRecordAnimalID.setElementText("Sifra zivotinje", "");
+        panelMedicalRecordID.setElementText("Generiši", "Šifra kartona", "");
+        panelMedicalRecordAnimalID.setElementText("Šifra životinje", "");
         panelMedicalRecordAnimalID.setEnabled(false);
         panelMedicalRecordNote.setElementText("Napomena", "");
-        panelMedicalRecordWorker.setElementText("Sifra radnika", "");
+        panelMedicalRecordWorker.setElementText("Šifra radnika", "");
         panelMedicalRecordDateCreated.setElementText("Datum kreiranja", new Date());
     }
     

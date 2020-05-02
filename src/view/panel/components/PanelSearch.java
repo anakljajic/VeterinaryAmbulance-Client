@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
@@ -49,6 +50,7 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
         scrollPane = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
 
+        panelSearch.setBackground(new java.awt.Color(255, 255, 255));
         panelSearch.setBorder(javax.swing.BorderFactory.createTitledBorder("Search..."));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -141,7 +143,7 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
     
     @Override
     public void pressButton(ClickButtonEvent evt) {
-        for (SearchListener searchListener : searchListeners) {
+        searchListeners.forEach((SearchListener searchListener) -> {
             try {
                 AbstractTableModel tableModel = searchListener.searchOdo((String) panelSearchCriteria.getValue());
                 table.setModel(tableModel);
@@ -149,7 +151,7 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
             } catch (Exception ex) {
                 Logger.getLogger(PanelSearch.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        });
     }
     
     private void clickedTable(int clickedRow) {

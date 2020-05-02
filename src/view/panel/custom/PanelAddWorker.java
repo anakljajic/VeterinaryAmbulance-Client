@@ -51,7 +51,8 @@ public class PanelAddWorker extends javax.swing.JPanel implements iFrmValue, Cus
         panelWorkerUsername = new view.panel.components.PanelLTFS();
         panelWorkerPassword = new view.panel.components.PanelLTFS();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Add worker"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Dodaj radnika"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

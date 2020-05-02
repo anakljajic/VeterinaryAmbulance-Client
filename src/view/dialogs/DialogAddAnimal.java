@@ -55,8 +55,9 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
         btnSavePet = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        btnSavePet.setText("Save");
+        btnSavePet.setText("Sačuvaj");
         btnSavePet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSavePetActionPerformed(evt);

@@ -45,6 +45,8 @@ public class PanelLCBS extends javax.swing.JPanel implements iFrmValue {
         separator = new javax.swing.JSeparator();
         comboBox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         label.setText("label:");
 
         comboBox.addActionListener(new java.awt.event.ActionListener() {

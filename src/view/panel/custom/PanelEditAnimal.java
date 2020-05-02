@@ -53,7 +53,8 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
         panelAnimalClientID = new view.panel.components.PanelLTFS();
         panelAnimalType = new view.panel.components.PanelLCBS();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Pet"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Izmena životinje"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,14 +110,14 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
 
     public void preparePanel() {
         panelAnimalID.getTextField().setEnabled(false);
-        panelAnimalID.setElementText("Sifra zivotinje", "");
+        panelAnimalID.setElementText("Šifra životinje", "");
         panelAnimalName.setElementText("Ime", "");
-        panelAnimalDate.setElementText("Datum rodjenja", new Date());
+        panelAnimalDate.setElementText("Datum rođenja", new Date());
         panelAnimalBreed.setElementText("Rasa", new DefaultComboBoxModel<>(RasaMacke.values()));
-        panelAnimalGender.setElementText("Pol", "Zenski", "Muski");
+        panelAnimalGender.setElementText("Pol", "Ženski", "Muški");
         panelAnimalType.setElementText("Vrsta", new DefaultComboBoxModel<>(VrstaZivotinje.values()));
         panelAnimalColor.setElementText("Boja", new DefaultComboBoxModel<>(BojaZivotinja.values()));
-        panelAnimalClientID.setElementText("Sifra klijenta", "");
+        panelAnimalClientID.setElementText("Šifra klijenta", "");
         panelAnimalClientID.getTextField().setEnabled(false);
     }
 

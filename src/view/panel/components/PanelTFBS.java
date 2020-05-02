@@ -41,6 +41,8 @@ public class PanelTFBS extends javax.swing.JPanel implements iFrmValue {
         button = new javax.swing.JButton();
         separator = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         button.setText("button");
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

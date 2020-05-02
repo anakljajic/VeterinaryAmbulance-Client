@@ -37,6 +37,8 @@ public class PanelLDPS extends javax.swing.JPanel implements iFrmValue {
         separator = new javax.swing.JSeparator();
         datePicker = new org.jdesktop.swingx.JXDatePicker();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         label.setText("label:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

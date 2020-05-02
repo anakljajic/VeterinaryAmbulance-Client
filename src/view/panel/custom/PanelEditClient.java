@@ -43,7 +43,8 @@ public class PanelEditClient extends javax.swing.JPanel implements iFrmValue {
         panelClientCity = new view.panel.components.PanelLTFS();
         panelClientBirthdate = new view.panel.components.PanelLDPS();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Edit client"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Izmeni klijenta"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,9 +97,9 @@ public class PanelEditClient extends javax.swing.JPanel implements iFrmValue {
     public void preparePanel() {
         
         panelClientID.getTextField().setEnabled(false);
-        panelClientID.setElementText("Sifra klijenta", "");
+        panelClientID.setElementText("Šifra klijenta", "");
         panelClientAddress.setElementText("Adresa", "");
-        panelClientBirthdate.setElementText("Datum rodjenja", new Date());
+        panelClientBirthdate.setElementText("Datum rođenja", new Date());
         panelClientCity.setElementText("Grad", "");
         panelClientName.setElementText("Ime", "");
         panelClientSurname.setElementText("Prezime", "");

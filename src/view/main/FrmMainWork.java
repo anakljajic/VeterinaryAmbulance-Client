@@ -31,7 +31,7 @@ import view.dialogs.DialogEditWorker;
  * @author anakl
  */
 public class FrmMainWork extends javax.swing.JFrame {
-
+    
     private Radnik radnik;
     private Klijent klijent;
     private JPanel activePanel;
@@ -43,7 +43,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.radnik = radnik;
-
+        
         prepareView();
     }
 
@@ -84,6 +84,9 @@ public class FrmMainWork extends javax.swing.JFrame {
         lblWorkersLogo = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         lblWorkersLogoText = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         horizontalPanel = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
@@ -98,26 +101,22 @@ public class FrmMainWork extends javax.swing.JFrame {
         panelSearchObjectOfSale = new view.panel.custom.PanelSearchObjectOfSale();
         panelWorkers = new javax.swing.JPanel();
         panelSearchWorker = new view.panel.custom.PanelSearchWorker();
-        btnDelete = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
+        panelWelcome = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
+        setMinimumSize(new java.awt.Dimension(700, 450));
 
         panelBackground.setBackground(new java.awt.Color(255, 255, 255));
-        panelBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidePanel.setBackground(new java.awt.Color(26, 36, 87));
-        sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWorkerLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user20px.png"))); // NOI18N
-        sidePanel.add(lblWorkerLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 30, 30));
 
         lblWorkerName.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblWorkerName.setForeground(new java.awt.Color(255, 255, 255));
         lblWorkerName.setText("label:");
-        sidePanel.add(lblWorkerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 130, -1));
 
         sidePanelExit.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,8 +158,6 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        sidePanel.add(sidePanelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 180, 40));
-
         sidePanelClients.setBackground(new java.awt.Color(85, 65, 118));
         sidePanelClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -185,7 +182,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addGroup(sidePanelClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sidePanelClientsLayout.createSequentialGroup()
                         .addComponent(lblClientsLogoText)
-                        .addGap(28, 89, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addComponent(jSeparator1)))
         );
         sidePanelClientsLayout.setVerticalGroup(
@@ -200,8 +197,6 @@ public class FrmMainWork extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-
-        sidePanel.add(sidePanelClients, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 180, 40));
 
         sidePanelMedicalReports.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelMedicalReports.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,8 +236,6 @@ public class FrmMainWork extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-
-        sidePanel.add(sidePanelMedicalReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 180, 40));
 
         sidePanelBills.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelBills.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,8 +277,6 @@ public class FrmMainWork extends javax.swing.JFrame {
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        sidePanel.add(sidePanelBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 180, 40));
-
         sidePanelStorage.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelStorage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -323,8 +314,6 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(lblStorageLogo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        sidePanel.add(sidePanelStorage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 40));
 
         sidePanelWorkers.setBackground(new java.awt.Color(79, 88, 133));
         sidePanelWorkers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -364,9 +353,70 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addComponent(lblWorkersLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        sidePanel.add(sidePanelWorkers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 180, 40));
+        javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
+        sidePanel.setLayout(sidePanelLayout);
+        sidePanelLayout.setHorizontalGroup(
+            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sidePanelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(sidePanelLayout.createSequentialGroup()
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(sidePanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblWorkerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sidePanelBills, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(sidePanelStorage, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(sidePanelWorkers, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(sidePanelExit, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        sidePanelLayout.setVerticalGroup(
+            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidePanelLayout.createSequentialGroup()
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWorkerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(sidePanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblWorkerName)))
+                .addGap(80, 80, 80)
+                .addComponent(sidePanelClients, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(sidePanelBills, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        panelBackground.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 650));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete30px.png"))); // NOI18N
+        btnDelete.setOpaque(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit30px.png"))); // NOI18N
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add30px.png"))); // NOI18N
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         horizontalPanel.setBackground(new java.awt.Color(79, 88, 133));
 
@@ -381,7 +431,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(horizontalPanelLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         horizontalPanelLayout.setVerticalGroup(
             horizontalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,66 +441,117 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelBackground.add(horizontalPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 830, 80));
-
-        scrollPane.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 60, 126)));
-
-        layeredPane.setBackground(new java.awt.Color(255, 255, 255));
+        panelClients.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelClientsLayout = new javax.swing.GroupLayout(panelClients);
         panelClients.setLayout(panelClientsLayout);
         panelClientsLayout.setHorizontalGroup(
             panelClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchClient, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(panelClientsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchClient, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelClientsLayout.setVerticalGroup(
             panelClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchClient, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(panelClientsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
+
+        panelMedicalRecords.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelMedicalRecordsLayout = new javax.swing.GroupLayout(panelMedicalRecords);
         panelMedicalRecords.setLayout(panelMedicalRecordsLayout);
         panelMedicalRecordsLayout.setHorizontalGroup(
             panelMedicalRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelMedicalRecordsLayout.setVerticalGroup(
             panelMedicalRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+            .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
+
+        panelBills.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelBillsLayout = new javax.swing.GroupLayout(panelBills);
         panelBills.setLayout(panelBillsLayout);
         panelBillsLayout.setHorizontalGroup(
             panelBillsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchBill, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(panelBillsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchBill, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelBillsLayout.setVerticalGroup(
             panelBillsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchBill, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(panelBillsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
+
+        panelStorage.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelStorageLayout = new javax.swing.GroupLayout(panelStorage);
         panelStorage.setLayout(panelStorageLayout);
         panelStorageLayout.setHorizontalGroup(
             panelStorageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(panelStorageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelStorageLayout.setVerticalGroup(
             panelStorageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(panelStorageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
+
+        panelWorkers.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelWorkersLayout = new javax.swing.GroupLayout(panelWorkers);
         panelWorkers.setLayout(panelWorkersLayout);
         panelWorkersLayout.setHorizontalGroup(
             panelWorkersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchWorker, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(panelWorkersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchWorker, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelWorkersLayout.setVerticalGroup(
             panelWorkersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSearchWorker, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(panelWorkersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSearchWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        panelWelcome.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblLogo.setBackground(new java.awt.Color(255, 255, 255));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoProgress127px.png"))); // NOI18N
+        lblLogo.setToolTipText("");
+
+        javax.swing.GroupLayout panelWelcomeLayout = new javax.swing.GroupLayout(panelWelcome);
+        panelWelcome.setLayout(panelWelcomeLayout);
+        panelWelcomeLayout.setHorizontalGroup(
+            panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+        );
+        panelWelcomeLayout.setVerticalGroup(
+            panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
         );
 
         layeredPane.setLayer(panelClients, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -458,76 +559,77 @@ public class FrmMainWork extends javax.swing.JFrame {
         layeredPane.setLayer(panelBills, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(panelStorage, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(panelWorkers, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(panelWelcome, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
         layeredPaneLayout.setHorizontalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layeredPaneLayout.createSequentialGroup()
-                .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layeredPaneLayout.createSequentialGroup()
-                        .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(panelBills, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(panelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPaneLayout.createSequentialGroup()
-                    .addContainerGap(26, Short.MAX_VALUE)
-                    .addComponent(panelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                .addComponent(panelMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelBills, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelStorage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelWorkers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layeredPaneLayout.setVerticalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layeredPaneLayout.createSequentialGroup()
-                .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelBills, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPaneLayout.createSequentialGroup()
-                .addComponent(panelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelWorkers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(panelMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelBills, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelStorage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelWorkers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         scrollPane.setViewportView(layeredPane);
 
-        panelBackground.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 780, 470));
-
-        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete30px.png"))); // NOI18N
-        btnDelete.setOpaque(false);
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        panelBackground.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 610, -1, -1));
-
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit30px.png"))); // NOI18N
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-        panelBackground.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, -1, -1));
-
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add30px.png"))); // NOI18N
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-        panelBackground.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 610, -1, -1));
+        javax.swing.GroupLayout panelBackgroundLayout = new javax.swing.GroupLayout(panelBackground);
+        panelBackground.setLayout(panelBackgroundLayout);
+        panelBackgroundLayout.setHorizontalGroup(
+            panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBackgroundLayout.createSequentialGroup()
+                .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(horizontalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBackgroundLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEdit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete))
+                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())))
+        );
+        panelBackgroundLayout.setVerticalGroup(
+            panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBackgroundLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(horizontalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDelete)
+                    .addComponent(btnAdd))
+                .addContainerGap())
+            .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -552,16 +654,16 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelMedicalReports);
             resetColor(sidePanelClients);
             resetColor(sidePanelWorkers);
-
+            
             activePanel = panelStorage;
             unhidePanel(panelStorage);
             hidePanel(panelBills);
             hidePanel(panelClients);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-
+            
             setTitleText("Rad sa: skladištem");
-
+            
         }
         if (evt.getSource() == sidePanelBills) {
             setColor(sidePanelBills);
@@ -570,16 +672,16 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-
+            
             activePanel = panelBills;
             unhidePanel(panelBills);
             hidePanel(panelStorage);
             hidePanel(panelClients);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-
+            
             setTitleText("Rad sa: računima");
-
+            
         }
         if (evt.getSource() == sidePanelMedicalReports) {
             setColor(sidePanelMedicalReports);
@@ -588,14 +690,14 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-
+            
             activePanel = panelMedicalRecords;
             unhidePanel(panelMedicalRecords);
             hidePanel(panelStorage);
             hidePanel(panelClients);
             hidePanel(panelStorage);
             hidePanel(panelWorkers);
-
+            
             setTitleText("Rad sa: kartonima");
         }
         if (evt.getSource() == sidePanelClients) {
@@ -605,18 +707,18 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelExit);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-
+            
             activePanel = panelClients;
             unhidePanel(panelClients);
             hidePanel(panelBills);
             hidePanel(panelStorage);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-
+            
             setTitleText("Rad sa: klijentima");
-
+            
         }
-
+        
         if (evt.getSource() == sidePanelWorkers) {
             setColor(sidePanelWorkers);
             resetColor(sidePanelBills);
@@ -624,16 +726,16 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelExit);
             resetColor(sidePanelStorage);
             resetColor(sidePanelClients);
-
+            
             activePanel = panelWorkers;
             unhidePanel(panelWorkers);
             hidePanel(panelBills);
             hidePanel(panelClients);
             hidePanel(panelStorage);
             hidePanel(panelMedicalRecords);
-
+            
             setTitleText("Rad sa: radnicima");
-
+            
         }
         if (evt.getSource() == sidePanelExit) {
             setColor(sidePanelExit);
@@ -642,9 +744,9 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-
+            
             System.exit(0);
-
+            
             setTitleText("");
         }
     }//GEN-LAST:event_sidePanelElementsMousePressed
@@ -652,19 +754,19 @@ public class FrmMainWork extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         if (activePanel == panelClients) {
             new DialogAddClient(this, true).setVisible(true);
-
+            
         }
         if (activePanel == panelMedicalRecords) {
             new DialogAddMedicalRecord(radnik).setVisible(true);
-
+            
         }
         if (activePanel == panelWorkers) {
             new DialogAddWorker(this, true).setVisible(true);
-
+            
         }
         if (activePanel == panelBills) {
             new DialogAddBill((Frame) SwingUtilities.getWindowAncestor(this), true).setVisible(true);
-
+            
         }
         if (activePanel == panelStorage) {
             new DialogAddStorage(this, rootPaneCheckingEnabled).setVisible(true);
@@ -746,6 +848,7 @@ public class FrmMainWork extends javax.swing.JFrame {
     private javax.swing.JLabel lblClientsLogoText;
     private javax.swing.JLabel lblExitLogo;
     private javax.swing.JLabel lblExitLogoText;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMedicalReportsLogo;
     private javax.swing.JLabel lblMedicalReportsLogoText;
     private javax.swing.JLabel lblStorageLogo1;
@@ -765,6 +868,7 @@ public class FrmMainWork extends javax.swing.JFrame {
     private view.panel.custom.PanelSearchObjectOfSale panelSearchObjectOfSale;
     private view.panel.custom.PanelSearchWorker panelSearchWorker;
     private javax.swing.JPanel panelStorage;
+    private javax.swing.JPanel panelWelcome;
     private javax.swing.JPanel panelWorkers;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel sidePanel;
@@ -783,60 +887,61 @@ public class FrmMainWork extends javax.swing.JFrame {
         preparePanels();
         setTitleText("Dobrodosli!");
     }
-
+    
     private void setSidePanelElements() {
-
+        
         lblClientsLogoText.setText("Klijenti");
-
+        
         lblMedicalReportsLogoText.setText("Kartoni");
-
+        
         lblBillsLogoText.setText("Računi");
-
+        
         lblStorageLogoText.setText("Skladište");
-
+        
         lblWorkersLogoText.setText("Radnici");
-
+        
         lblExitLogoText.setText("Kraj rada");
-
+        
         lblWorkerName.setText("Radnik: " + radnik.toString());
-
+        
     }
-
+    
     void setColor(JPanel panel) {
         panel.setBackground(new Color(85, 65, 118));
     }
-
+    
     void resetColor(JPanel panel) {
         panel.setBackground(new Color(79, 88, 133));
     }
-
+    
     private void setProjectIcon() {
         URL imageUrl = ClassLoader.getSystemResource("img/logoLogin95px.png");
         ImageIcon imageIcon = new ImageIcon(imageUrl);
         setIconImage(imageIcon.getImage());
     }
-
+    
     private void unhidePanel(JPanel panel) {
         panel.setVisible(true);
     }
-
+    
     private void hidePanel(JPanel panel) {
         panel.setVisible(false);
     }
-
+    
     private void setTitleText(String text) {
         lblTitle.setText(text);
     }
-
+    
     private void setPanelStates() {
         hidePanel(panelBills);
         hidePanel(panelWorkers);
         hidePanel(panelMedicalRecords);
         hidePanel(panelStorage);
         hidePanel(panelClients);
-        scrollPane.setVisible(false);
+        unhidePanel(panelWelcome);
+        scrollPane.setVisible(true);
     }
-
+    
     private void preparePanels() {
         panelSearchClient.preparePanel();
         panelSearchMedicalRecords.preparePanel();
@@ -844,5 +949,5 @@ public class FrmMainWork extends javax.swing.JFrame {
         panelSearchBill.preparePanel();
         panelSearchObjectOfSale.preparePanel();
     }
-
+    
 }

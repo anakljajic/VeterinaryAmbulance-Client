@@ -39,12 +39,16 @@ public class PanelLRBS extends javax.swing.JPanel implements iFrmValue {
         firstRadioButton = new javax.swing.JRadioButton();
         secondRadioButton = new javax.swing.JRadioButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         label.setText("label:");
 
+        firstRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(firstRadioButton);
         firstRadioButton.setSelected(true);
         firstRadioButton.setText("firstRadioButton");
 
+        secondRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(secondRadioButton);
         secondRadioButton.setText("secondRadioButton");
 

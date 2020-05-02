@@ -53,6 +53,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         btnAddAnimal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         btnClearClient.setText("Clear");
         btnClearClient.addActionListener(new java.awt.event.ActionListener() {

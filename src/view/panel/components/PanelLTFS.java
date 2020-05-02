@@ -42,6 +42,8 @@ public class PanelLTFS extends javax.swing.JPanel implements iFrmValue {
         textField = new javax.swing.JTextField();
         separator = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         label.setText("label:");
 
         textField.addFocusListener(new java.awt.event.FocusAdapter() {

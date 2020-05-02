@@ -41,7 +41,8 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
         panelWorkerUsername = new view.panel.components.PanelLTFS();
         panelWorkerPassword = new view.panel.components.PanelLTFS();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Edit worker"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Izmena radnika"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,10 +102,10 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
 
     public void preparePanel() {
         panelWorkerID.getTextField().setEnabled(false);
-        panelWorkerID.setElementText("Sifra radnika", "");
+        panelWorkerID.setElementText("Šifra radnika", "");
         panelWorkerAddress.setElementText("Adresa", "");
-        panelWorkerBirthdate.setElementText("Datum rodjenja", new Date());
-        panelWorkerUsername.setElementText("Korisnicko ime", "");
+        panelWorkerBirthdate.setElementText("Datum rođenja", new Date());
+        panelWorkerUsername.setElementText("Korisničko ime", "");
         panelWorkerPassword.setElementText("Lozinka", "");
         panelWorkerName.setElementText("Ime", "");
         panelWorkerSurname.setElementText("Prezime", "");

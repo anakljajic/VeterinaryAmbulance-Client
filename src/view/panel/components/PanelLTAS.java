@@ -37,6 +37,8 @@ public class PanelLTAS extends javax.swing.JPanel implements iFrmValue {
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         label.setText("label:");
 
         textArea.setColumns(20);
