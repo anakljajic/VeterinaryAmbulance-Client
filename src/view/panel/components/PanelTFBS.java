@@ -7,6 +7,7 @@ package view.panel.components;
 
 import domain.iFrmValue;
 import events.ClickButtonEvent;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -26,6 +27,8 @@ public class PanelTFBS extends javax.swing.JPanel implements iFrmValue {
      */
     public PanelTFBS() {
         initComponents();
+        setButtonBackground();
+        setButtonForeground();
     }
 
     /**
@@ -125,5 +128,13 @@ public class PanelTFBS extends javax.swing.JPanel implements iFrmValue {
         for (CustomComponentListener customComponentListener : customComponentListeners) {
             customComponentListener.pressButton(new ClickButtonEvent(this));
         }
+    }
+
+    public void setButtonBackground() {
+        button.setBackground(new Color(47, 60, 127));
+    }
+
+    public void setButtonForeground() {
+        button.setForeground(Color.WHITE);
     }
 }

@@ -9,7 +9,6 @@ import controller.CommunicationController;
 import domain.DomainObject;
 import domain.Zivotinja;
 import domain.iFrmValue;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,13 +19,14 @@ import listeners.ChooseListener;
 import listeners.DeleteObjectListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelZivotinja;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchPet extends javax.swing.JPanel implements DeleteObjectListener, SearchListener, iFrmValue, MyTableListener {
+public class PanelSearchPet extends javax.swing.JPanel implements TableDataListener, DeleteObjectListener, SearchListener, iFrmValue, MyTableListener {
 
     private TableModelZivotinja tmz;
     private List<Zivotinja> zivotinje;
@@ -76,6 +76,7 @@ public class PanelSearchPet extends javax.swing.JPanel implements DeleteObjectLi
         panelSearchPets.preparePanel(tmz);
         panelSearchPets.addListener(this);
         panelSearchPets.addMyTableListener(this);
+        panelSearchPets.setPanelTitle("Pretraži životinje");
     }
 
     public void clearPanel() {
@@ -133,6 +134,12 @@ public class PanelSearchPet extends javax.swing.JPanel implements DeleteObjectLi
     public void removeObject(DomainObject odo) throws Exception {
         zivotinja = (Zivotinja) getValue();
         CommunicationController.getInstance().deleteObject(zivotinja);
+        zivotinje = CommunicationController.getInstance().selectAllPets();
+        tmz.azuriraj(zivotinje);
+    }
+
+    @Override
+    public void updateTable() throws Exception {
         zivotinje = CommunicationController.getInstance().selectAllPets();
         tmz.azuriraj(zivotinje);
     }

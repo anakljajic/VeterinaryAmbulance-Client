@@ -125,7 +125,7 @@ public class PanelEditClient extends javax.swing.JPanel implements iFrmValue {
         panelClientID.setValue(klijent.getKlijentID() + "");
         panelClientName.setValue(klijent.getIme());
         panelClientSurname.setValue(klijent.getPrezime());
-        panelClientCity.setValue(klijent.getAdresa());
+        panelClientCity.setValue(klijent.getMesto());
         panelClientTelephone.setValue(klijent.getTelefon());
         panelClientAddress.setValue(klijent.getAdresa());
         panelClientBirthdate.setValue(klijent.getDatumRodjenja());

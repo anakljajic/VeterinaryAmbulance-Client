@@ -59,8 +59,8 @@ public class ProgressThread extends Thread {
 
                 progressBar.setValue(i + 14);
 
-                Thread.sleep(1500);
-                i += 13;
+                Thread.sleep(900);
+                i += 20;
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

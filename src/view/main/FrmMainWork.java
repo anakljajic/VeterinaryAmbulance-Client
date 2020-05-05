@@ -10,13 +10,18 @@ import domain.Karton;
 import domain.Klijent;
 import domain.Radnik;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 import view.dialogs.DialogAddBill;
 import view.dialogs.DialogAddClient;
 import view.dialogs.DialogAddMedicalRecord;
@@ -31,10 +36,11 @@ import view.dialogs.DialogEditWorker;
  * @author anakl
  */
 public class FrmMainWork extends javax.swing.JFrame {
-    
+
     private Radnik radnik;
     private Klijent klijent;
     private JPanel activePanel;
+    private String activePanelString;
 
     /**
      * Creates new form FrmMainWork
@@ -43,7 +49,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.radnik = radnik;
-        
+
         prepareView();
     }
 
@@ -103,6 +109,8 @@ public class FrmMainWork extends javax.swing.JFrame {
         panelSearchWorker = new view.panel.custom.PanelSearchWorker();
         panelWelcome = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
+        lblHomePage = new javax.swing.JLabel();
+        btnHomePage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -360,16 +368,16 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addComponent(sidePanelClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidePanelLayout.createSequentialGroup()
                 .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(sidePanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblWorkerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sidePanelBills, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE))
+                    .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                    .addGroup(sidePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblWorkerLogo)
+                        .addGap(10, 10, 10)
+                        .addComponent(lblWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         sidePanelLayout.setVerticalGroup(
@@ -379,8 +387,8 @@ public class FrmMainWork extends javax.swing.JFrame {
                     .addComponent(lblWorkerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(sidePanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(lblWorkerName)))
-                .addGap(80, 80, 80)
+                        .addComponent(lblWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(93, 93, 93)
                 .addComponent(sidePanelClients, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +398,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -400,6 +408,14 @@ public class FrmMainWork extends javax.swing.JFrame {
         btnDelete.setBorderPainted(false);
         btnDelete.setContentAreaFilled(false);
         btnDelete.setFocusPainted(false);
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseExited(evt);
+            }
+        });
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -410,6 +426,14 @@ public class FrmMainWork extends javax.swing.JFrame {
         btnEdit.setBorderPainted(false);
         btnEdit.setContentAreaFilled(false);
         btnEdit.setFocusPainted(false);
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseExited(evt);
+            }
+        });
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
@@ -420,6 +444,14 @@ public class FrmMainWork extends javax.swing.JFrame {
         btnAdd.setBorderPainted(false);
         btnAdd.setContentAreaFilled(false);
         btnAdd.setFocusPainted(false);
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnOperationsMouseExited(evt);
+            }
+        });
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -465,7 +497,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelClientsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         panelMedicalRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -484,7 +516,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         panelBills.setBackground(new java.awt.Color(255, 255, 255));
@@ -503,7 +535,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelBillsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         panelStorage.setBackground(new java.awt.Color(255, 255, 255));
@@ -522,7 +554,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelStorageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         panelWorkers.setBackground(new java.awt.Color(255, 255, 255));
@@ -541,7 +573,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelWorkersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         panelWelcome.setBackground(new java.awt.Color(255, 255, 255));
@@ -559,7 +591,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         );
         panelWelcomeLayout.setVerticalGroup(
             panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
         );
 
         layeredPane.setLayer(panelClients, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -602,6 +634,21 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         scrollPane.setViewportView(layeredPane);
 
+        lblHomePage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblHomePage.setForeground(new java.awt.Color(47, 60, 127));
+        lblHomePage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblHomePage.setText("label:");
+
+        btnHomePage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_blue_20px.png"))); // NOI18N
+        btnHomePage.setBorderPainted(false);
+        btnHomePage.setContentAreaFilled(false);
+        btnHomePage.setFocusPainted(false);
+        btnHomePage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sidePanelElementsMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBackgroundLayout = new javax.swing.GroupLayout(panelBackground);
         panelBackground.setLayout(panelBackgroundLayout);
         panelBackgroundLayout.setHorizontalGroup(
@@ -613,30 +660,40 @@ public class FrmMainWork extends javax.swing.JFrame {
                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelBackgroundLayout.createSequentialGroup()
+                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEdit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnDelete))
-                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
+                                        .addComponent(lblHomePage, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnHomePage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
+                                        .addComponent(btnAdd)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnEdit)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnDelete)))))
                         .addContainerGap())))
         );
         panelBackgroundLayout.setVerticalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBackgroundLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnHomePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHomePage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
                 .addComponent(horizontalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEdit)
                     .addComponent(btnDelete)
                     .addComponent(btnAdd))
                 .addContainerGap())
-            .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -662,16 +719,21 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelMedicalReports);
             resetColor(sidePanelClients);
             resetColor(sidePanelWorkers);
-            
+
             activePanel = panelStorage;
             unhidePanel(panelStorage);
             hidePanel(panelBills);
             hidePanel(panelClients);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-            
+            hidePanel(panelWelcome);
+
             setTitleText("Rad sa: skladištem");
-            
+
+            enableButton(btnAdd);
+            enableButton(btnEdit);
+            enableButton(btnDelete);
+
         }
         if (evt.getSource() == sidePanelBills) {
             setColor(sidePanelBills);
@@ -680,16 +742,20 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-            
+
             activePanel = panelBills;
             unhidePanel(panelBills);
             hidePanel(panelStorage);
             hidePanel(panelClients);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-            
+            hidePanel(panelWelcome);
+
             setTitleText("Rad sa: računima");
-            
+            enableButton(btnAdd);
+            disableButton(btnEdit);
+            disableButton(btnDelete);
+
         }
         if (evt.getSource() == sidePanelMedicalReports) {
             setColor(sidePanelMedicalReports);
@@ -698,15 +764,20 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-            
+
             activePanel = panelMedicalRecords;
             unhidePanel(panelMedicalRecords);
             hidePanel(panelStorage);
             hidePanel(panelClients);
             hidePanel(panelStorage);
             hidePanel(panelWorkers);
-            
+            hidePanel(panelWelcome);
+
             setTitleText("Rad sa: kartonima");
+
+            enableButton(btnAdd);
+            enableButton(btnEdit);
+            disableButton(btnDelete);
         }
         if (evt.getSource() == sidePanelClients) {
             setColor(sidePanelClients);
@@ -715,18 +786,24 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelExit);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-            
+
             activePanel = panelClients;
+            activePanelString = "KLIJENTI";
             unhidePanel(panelClients);
             hidePanel(panelBills);
             hidePanel(panelStorage);
             hidePanel(panelMedicalRecords);
             hidePanel(panelWorkers);
-            
+            hidePanel(panelWelcome);
+
             setTitleText("Rad sa: klijentima");
-            
+
+            enableButton(btnAdd);
+            enableButton(btnEdit);
+            disableButton(btnDelete);
+
         }
-        
+
         if (evt.getSource() == sidePanelWorkers) {
             setColor(sidePanelWorkers);
             resetColor(sidePanelBills);
@@ -734,16 +811,21 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelExit);
             resetColor(sidePanelStorage);
             resetColor(sidePanelClients);
-            
+
             activePanel = panelWorkers;
             unhidePanel(panelWorkers);
             hidePanel(panelBills);
             hidePanel(panelClients);
             hidePanel(panelStorage);
             hidePanel(panelMedicalRecords);
-            
+            hidePanel(panelWelcome);
+
             setTitleText("Rad sa: radnicima");
-            
+
+            enableButton(btnAdd);
+            enableButton(btnEdit);
+            disableButton(btnDelete);
+
         }
         if (evt.getSource() == sidePanelExit) {
             setColor(sidePanelExit);
@@ -752,29 +834,54 @@ public class FrmMainWork extends javax.swing.JFrame {
             resetColor(sidePanelClients);
             resetColor(sidePanelStorage);
             resetColor(sidePanelWorkers);
-            
+
             System.exit(0);
-            
+
             setTitleText("");
+        }
+
+        if (evt.getSource() == btnHomePage) {
+            resetColor(sidePanelStorage);
+            resetColor(sidePanelExit);
+            resetColor(sidePanelBills);
+            resetColor(sidePanelMedicalReports);
+            resetColor(sidePanelClients);
+            resetColor(sidePanelWorkers);
+
+            activePanel = panelWelcome;
+            unhidePanel(panelWelcome);
+            hidePanel(panelBills);
+            hidePanel(panelStorage);
+            hidePanel(panelClients);
+            hidePanel(panelMedicalRecords);
+            hidePanel(panelWorkers);
+
+            setTitleText("Početna strana");
+
+            setButtonStates();
+
         }
     }//GEN-LAST:event_sidePanelElementsMousePressed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+//        setButtonBackground(btnAdd);
+//        resetButtonBackground(btnEdit);
+//        resetButtonBackground(btnDelete);
         if (activePanel == panelClients) {
             new DialogAddClient(this, true).setVisible(true);
-            
+
         }
         if (activePanel == panelMedicalRecords) {
             new DialogAddMedicalRecord(radnik).setVisible(true);
-            
+
         }
         if (activePanel == panelWorkers) {
             new DialogAddWorker(this, true).setVisible(true);
-            
+
         }
         if (activePanel == panelBills) {
             new DialogAddBill((Frame) SwingUtilities.getWindowAncestor(this), true).setVisible(true);
-            
+
         }
         if (activePanel == panelStorage) {
             new DialogAddStorage(this, rootPaneCheckingEnabled).setVisible(true);
@@ -783,6 +890,10 @@ public class FrmMainWork extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+//        setButtonBackground(btnEdit);
+//        resetButtonBackground(btnAdd);
+//        resetButtonBackground(btnDelete);
+
         if (activePanel == panelClients) {
             new DialogEditClient(this, false, (Klijent) panelSearchClient.getValue()).setVisible(true);
         }
@@ -800,34 +911,37 @@ public class FrmMainWork extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        if (activePanel == panelClients) {
-            try {
-                panelSearchClient.removeObject((Klijent) panelSearchClient.getValue());
-            } catch (Exception ex) {
-                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        if (activePanel == panelBills) {
-            try {
-                panelSearchBill.removeObject((DomainObject) panelSearchBill.getValue());
-            } catch (Exception ex) {
-                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        if (activePanel == panelWorkers) {
-            try {
-                panelSearchWorker.removeObject((DomainObject) panelSearchWorker.getValue());
-            } catch (Exception ex) {
-                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        if (activePanel == panelMedicalRecords) {
-            try {
-                panelSearchMedicalRecords.removeObject((DomainObject) panelSearchMedicalRecords.getValue());
-            } catch (Exception ex) {
-                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        if (activePanel == panelClients) {
+//            try {
+//                panelSearchClient.removeObject((Klijent) panelSearchClient.getValue());
+//            } catch (Exception ex) {
+//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        if (activePanel == panelBills) {
+//            try {
+//                panelSearchBill.removeObject((DomainObject) panelSearchBill.getValue());
+//            } catch (Exception ex) {
+//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        if (activePanel == panelWorkers) {
+//            try {
+//                panelSearchWorker.removeObject((DomainObject) panelSearchWorker.getValue());
+//            } catch (Exception ex) {
+//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        if (activePanel == panelMedicalRecords) {
+//            try {
+//                panelSearchMedicalRecords.removeObject((DomainObject) panelSearchMedicalRecords.getValue());
+//            } catch (Exception ex) {
+//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        setButtonBackground(btnDelete);
+//        resetButtonBackground(btnEdit);
+//        resetButtonBackground(btnAdd);
         if (activePanel == panelStorage) {
             try {
                 panelSearchObjectOfSale.removeObject((DomainObject) panelSearchObjectOfSale.getValue());
@@ -837,11 +951,36 @@ public class FrmMainWork extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnOperationsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOperationsMouseEntered
+        if (evt.getSource() == btnAdd) {
+            setButtonBackground(btnAdd);
+            resetButtonBackground(btnEdit);
+            resetButtonBackground(btnDelete);
+        }
+        if (evt.getSource() == btnEdit) {
+            setButtonBackground(btnEdit);
+            resetButtonBackground(btnAdd);
+            resetButtonBackground(btnDelete);
+        }
+        if (evt.getSource() == btnDelete) {
+            setButtonBackground(btnDelete);
+            resetButtonBackground(btnEdit);
+            resetButtonBackground(btnAdd);
+        }
+    }//GEN-LAST:event_btnOperationsMouseEntered
+
+    private void btnOperationsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOperationsMouseExited
+        resetButtonBackground(btnEdit);
+        resetButtonBackground(btnAdd);
+        resetButtonBackground(btnDelete);
+    }//GEN-LAST:event_btnOperationsMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnHomePage;
     private javax.swing.JPanel horizontalPanel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -856,6 +995,7 @@ public class FrmMainWork extends javax.swing.JFrame {
     private javax.swing.JLabel lblClientsLogoText;
     private javax.swing.JLabel lblExitLogo;
     private javax.swing.JLabel lblExitLogoText;
+    private javax.swing.JLabel lblHomePage;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMedicalReportsLogo;
     private javax.swing.JLabel lblMedicalReportsLogoText;
@@ -893,53 +1033,55 @@ public class FrmMainWork extends javax.swing.JFrame {
         setSidePanelElements();
         setProjectIcon();
         preparePanels();
-        setTitleText("Dobrodosli!");
+        setButtonStates();
+        setTitleText("Dobrodošli!");
+        lblHomePage.setText("Početna strana");
     }
-    
+
     private void setSidePanelElements() {
-        
+
         lblClientsLogoText.setText("Klijenti");
-        
+
         lblMedicalReportsLogoText.setText("Kartoni");
-        
+
         lblBillsLogoText.setText("Računi");
-        
+
         lblStorageLogoText.setText("Skladište");
-        
+
         lblWorkersLogoText.setText("Radnici");
-        
+
         lblExitLogoText.setText("Kraj rada");
-        
+
         lblWorkerName.setText("Radnik: " + radnik.toString());
-        
+
     }
-    
+
     void setColor(JPanel panel) {
         panel.setBackground(new Color(85, 65, 118));
     }
-    
+
     void resetColor(JPanel panel) {
         panel.setBackground(new Color(79, 88, 133));
     }
-    
+
     private void setProjectIcon() {
         URL imageUrl = ClassLoader.getSystemResource("img/logoLogin95px.png");
         ImageIcon imageIcon = new ImageIcon(imageUrl);
         setIconImage(imageIcon.getImage());
     }
-    
+
     private void unhidePanel(JPanel panel) {
         panel.setVisible(true);
     }
-    
+
     private void hidePanel(JPanel panel) {
         panel.setVisible(false);
     }
-    
+
     private void setTitleText(String text) {
         lblTitle.setText(text);
     }
-    
+
     private void setPanelStates() {
         hidePanel(panelBills);
         hidePanel(panelWorkers);
@@ -949,7 +1091,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         unhidePanel(panelWelcome);
         scrollPane.setVisible(true);
     }
-    
+
     private void preparePanels() {
         panelSearchClient.preparePanel();
         panelSearchMedicalRecords.preparePanel();
@@ -957,5 +1099,64 @@ public class FrmMainWork extends javax.swing.JFrame {
         panelSearchBill.preparePanel();
         panelSearchObjectOfSale.preparePanel();
     }
-    
+
+    private void setButtonStates() {
+        disableButton(btnDelete);
+        disableButton(btnAdd);
+        disableButton(btnEdit);
+        btnDelete.setPreferredSize(new Dimension(40, 20));
+        btnAdd.setPreferredSize(new Dimension(40, 20));
+        btnEdit.setPreferredSize(new Dimension(40, 20));
+    }
+
+    private void disableButton(JButton button) {
+        button.setEnabled(false);
+    }
+
+    private void enableButton(JButton button) {
+        button.setEnabled(true);
+    }
+
+    private void setButtonBackground(JButton button) {
+//        button.setBackground(new Color(251, 234, 235));
+        button.setBackground(new Color(47, 60, 127));
+        button.setBorderPainted(true);
+        Border border = BorderFactory.createLineBorder(new Color(47, 60, 127));
+        button.setBorder(border);
+        button.setPreferredSize(new Dimension(60, 25));
+    }
+
+    private void resetButtonBackground(JButton button) {
+        button.setBackground(new Color(255, 255, 255));
+        button.setPreferredSize(new Dimension(40, 20));
+        button.setBorderPainted(false);
+    }
+
+    public void refreshActivePanel() {
+        try {
+            if (activePanel == panelClients) {
+                panelSearchClient.updateTable();
+            }
+            if (activePanel == panelBills) {
+                panelSearchBill.updateTable();
+            }
+            if (activePanel == panelWorkers) {
+                panelSearchWorker.updateTable();
+            }
+            if (activePanel == panelMedicalRecords) {
+                panelSearchMedicalRecords.updateTable();
+            }
+            if (activePanel == panelStorage) {
+                panelSearchObjectOfSale.updateTable();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public String getActivePanel() {
+        return activePanelString;
+    }
+
 }

@@ -11,13 +11,14 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import view.main.FrmMainWork;
 
 /**
  *
  * @author anakl
  */
 public class DialogEditWorker extends javax.swing.JDialog {
-    
+
     private Radnik radnik;
 
     /**
@@ -87,7 +88,8 @@ public class DialogEditWorker extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,8 +106,9 @@ public class DialogEditWorker extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Uspesno izmenjen klijent " + radnik.getIme()
                     + " " + radnik.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditWorker.clearPanel();
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }

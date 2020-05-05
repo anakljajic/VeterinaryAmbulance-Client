@@ -19,13 +19,14 @@ import listeners.ChooseListener;
 import listeners.DeleteObjectListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelKarton;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchMedicalRecords extends javax.swing.JPanel implements DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
+public class PanelSearchMedicalRecords extends javax.swing.JPanel implements TableDataListener, DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
 
     private TableModelKarton tmk;
     private List<Karton> kartoni;
@@ -75,6 +76,7 @@ public class PanelSearchMedicalRecords extends javax.swing.JPanel implements Del
         panelSearchMedicalRecord.preparePanel(tmk);
         panelSearchMedicalRecord.addListener(this);
         panelSearchMedicalRecord.addMyTableListener(this);
+        panelSearchMedicalRecord.setPanelTitle("Pretraži kartone");
     }
 
     public void clearPanel() {
@@ -132,6 +134,12 @@ public class PanelSearchMedicalRecords extends javax.swing.JPanel implements Del
     public void removeObject(DomainObject odo) throws Exception {
         karton = (Karton) odo;
         CommunicationController.getInstance().deleteObject(odo);
+        kartoni = CommunicationController.getInstance().selectAllMedicalRecords();
+        tmk.azuriraj(kartoni);
+    }
+
+    @Override
+    public void updateTable() throws Exception {
         kartoni = CommunicationController.getInstance().selectAllMedicalRecords();
         tmk.azuriraj(kartoni);
     }

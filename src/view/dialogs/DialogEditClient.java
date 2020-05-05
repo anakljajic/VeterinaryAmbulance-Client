@@ -6,27 +6,20 @@
 package view.dialogs;
 
 import controller.CommunicationController;
-import domain.DomainObject;
 import domain.Klijent;
 import domain.Zivotinja;
-import events.ClickButtonEvent;
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import listeners.CustomComponentListener;
-import listeners.GenerateListener;
-import view.panel.custom.PanelAddAnimal;
-import view.panel.custom.PanelAddClient;
+import view.main.FrmMainWork;
 
 /**
  *
  * @author anakl
  */
 public class DialogEditClient extends javax.swing.JDialog {
-    
+
     private Klijent klijent;
 
     /**
@@ -148,8 +141,9 @@ public class DialogEditClient extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Uspesno izmenjen klijent " + klijent.getIme()
                     + " " + klijent.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditClient.clearPanel();
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -181,5 +175,9 @@ public class DialogEditClient extends javax.swing.JDialog {
         panelSearchClientsPet.setTableData(klijent.getKlijentID());
         this.getContentPane().setBackground(Color.white);
     }
-    
+
+    public void updateTable() throws Exception {
+        panelSearchClientsPet.updateTable();
+    }
+
 }

@@ -20,7 +20,7 @@ import view.main.FrmMainWork;
  * @author anakl
  */
 public class DialogAddWorker extends javax.swing.JDialog implements GenerateListener {
-    
+
     private Radnik radnik;
 
     /**
@@ -92,7 +92,8 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,10 +105,12 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
             radnik = (Radnik) CommunicationController.getInstance().updateDomainObject(radnik);
             JOptionPane.showMessageDialog(null, "Uspesno insertovan radnik " + radnik.getIme()
                     + " " + radnik.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-            
+
             panelAddWorker.clearPanel();
             btnAdd.setEnabled(false);
             btnClear.setEnabled(false);
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
+            dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -116,13 +119,13 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         panelAddWorker.clearPanel();
     }//GEN-LAST:event_btnClearActionPerformed
-    
+
     private void prepareView() {
         panelAddWorker.preparePanel();
         panelAddWorker.addListener(this);
         this.getContentPane().setBackground(Color.WHITE);
     }
-    
+
     public void clearPanel() {
         panelAddWorker.clearPanel();
     }
@@ -136,15 +139,15 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
     @Override
     public DomainObject generateOdo(DomainObject domainObject) throws Exception {
         try {
-            
+
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-            
+
             JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE
             );
             btnAdd.setEnabled(true);
             btnClear.setEnabled(true);
-            
+
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);

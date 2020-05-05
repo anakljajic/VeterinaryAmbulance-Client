@@ -29,7 +29,7 @@ import view.tableModels.TableModelStavkaRacuna;
  * @author anakl
  */
 public class DialogAddBill extends javax.swing.JDialog implements GenerateListener, ItemOfBillChooseListener {
-
+    
     private Racun racun;
     private StavkaRacuna stavka;
     private Radnik radnik;
@@ -86,7 +86,11 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         ));
         jScrollPane1.setViewportView(tableBillItems);
 
+        btnAddItem.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddItem.setForeground(new java.awt.Color(255, 255, 255));
         btnAddItem.setText("Dodaj stavku");
+        btnAddItem.setBorderPainted(false);
+        btnAddItem.setFocusPainted(false);
         btnAddItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGroupMouseEntered(evt);
@@ -101,7 +105,11 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             }
         });
 
+        btnClearItem.setBackground(new java.awt.Color(47, 60, 127));
+        btnClearItem.setForeground(new java.awt.Color(255, 255, 255));
         btnClearItem.setText("Izbriši stavku");
+        btnClearItem.setBorderPainted(false);
+        btnClearItem.setFocusPainted(false);
         btnClearItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGroupMouseEntered(evt);
@@ -116,7 +124,11 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             }
         });
 
+        btnClear.setBackground(new java.awt.Color(47, 60, 127));
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Obriši račun");
+        btnClear.setBorderPainted(false);
+        btnClear.setFocusPainted(false);
         btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGroupMouseEntered(evt);
@@ -131,7 +143,11 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             }
         });
 
+        btnAdd.setBackground(new java.awt.Color(47, 60, 127));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Sačuvaj račun");
+        btnAdd.setBorderPainted(false);
+        btnAdd.setFocusPainted(false);
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGroupMouseEntered(evt);
@@ -157,13 +173,13 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
                     .addComponent(panelAddBill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClearItem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClearItem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -177,10 +193,10 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddItem)
-                    .addComponent(btnClearItem)
-                    .addComponent(btnClear)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearItem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -195,7 +211,7 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
 
     private void btnClearItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearItemActionPerformed
         int rowSelected = tableBillItems.getSelectedRow();
-
+        
         if (rowSelected != -1) {
             stavkeRacuna.remove(rowSelected);
             tmsr.azuriraj(stavkeRacuna);
@@ -210,6 +226,7 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             JOptionPane.showMessageDialog(null, "Uspesno insertovan racun", "Uspeh",
                     JOptionPane.INFORMATION_MESSAGE);
             clearPanel();
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddBill.class.getName()).log(Level.SEVERE, null, ex);
@@ -274,31 +291,32 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         tableBillItems.setModel(tmsr);
         panelAddBill.preparePanel();
         panelAddBill.addListener(this);
+        this.getContentPane().setBackground(Color.WHITE);
     }
-
+    
     public void clearPanel() {
         panelAddBill.clearPanel();
         stavkeRacuna.clear();
         tmsr.azuriraj(stavkeRacuna);
     }
-
+    
     @Override
     public DomainObject generateOdo(DomainObject domainObject) throws Exception {
         try {
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-
+            
             JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + "!",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             btnAdd.setEnabled(true);
             btnClear.setEnabled(true);
-
+            
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         }
     }
-
+    
     @Override
     public void onChooseItemOfBill(StavkaRacuna stavkaRacuna) {
         stavkaRacuna.setStavkaRacunaID(Long.valueOf(stavkeRacuna.size() + 1));
@@ -310,5 +328,5 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         stavkeRacuna.add(stavkaRacuna);
         tmsr.azuriraj(stavkeRacuna);
     }
-
+    
 }

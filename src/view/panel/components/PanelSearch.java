@@ -11,9 +11,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 import javax.swing.table.AbstractTableModel;
 import listeners.CustomComponentListener;
 import listeners.MyTableListener;
@@ -24,7 +25,7 @@ import listeners.SearchListener;
  * @author anakl
  */
 public class PanelSearch extends javax.swing.JPanel implements iFrmValue, CustomComponentListener {
-    
+
     private List<SearchListener> searchListeners = new ArrayList<>();
     private List<MyTableListener> myTableListeners = new ArrayList<>();
 
@@ -119,28 +120,29 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
     // End of variables declaration//GEN-END:variables
 
     public void preparePanel(AbstractTableModel tableModel) {
-        
-        panelSearchCriteria.setElementText("Pretrazi", "");
+
+        panelSearchCriteria.setElementText("Pretraži", "");
         panelSearchCriteria.addListener(this);
         table.setModel(tableModel);
+        panelSearchCriteria.setButtonBackground();
     }
-    
+
     public void clearPanel(AbstractTableModel tableModel) {
         panelSearchCriteria.clearPanel();
         table.setModel(tableModel);
     }
-    
+
     @Override
     public Object getValue() {
         return table.getSelectedRow();
     }
-    
+
     @Override
     public void setValue(Object object) {
         AbstractTableModel tableModel = (AbstractTableModel) object;
         table.setModel(tableModel);
     }
-    
+
     @Override
     public void pressButton(ClickButtonEvent evt) {
         searchListeners.forEach((SearchListener searchListener) -> {
@@ -153,21 +155,21 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
             }
         });
     }
-    
+
     private void clickedTable(int clickedRow) {
         for (MyTableListener myTableListener : myTableListeners) {
             myTableListener.clickedRow(clickedRow);
         }
     }
-    
+
     public void addListener(SearchListener toAdd) {
         searchListeners.add(toAdd);
     }
-    
+
     public void addMyTableListener(MyTableListener add) {
         myTableListeners.add(add);
     }
-    
+
     private void formatTable() {
         table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         table.getTableHeader().setOpaque(false);
@@ -175,5 +177,12 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
         table.getTableHeader().setForeground(new Color(255, 255, 255));
         table.setRowHeight(25);
     }
+
+    public void setPanelTitle(String value) {
+        Border border = BorderFactory.createTitledBorder(value);
+        panelSearch.setBorder(border);
+    }
     
+    
+
 }

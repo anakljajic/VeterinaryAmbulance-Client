@@ -17,13 +17,14 @@ import javax.swing.table.AbstractTableModel;
 import listeners.DeleteObjectListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelRacun;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchBill extends javax.swing.JPanel implements DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
+public class PanelSearchBill extends javax.swing.JPanel implements TableDataListener, DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
 
     private TableModelRacun tmr;
     private List<Racun> racuni;
@@ -71,6 +72,7 @@ public class PanelSearchBill extends javax.swing.JPanel implements DeleteObjectL
         panelSearchBill.preparePanel(tmr);
         panelSearchBill.addListener(this);
         panelSearchBill.addMyTableListener(this);
+        panelSearchBill.setPanelTitle("Pretraži račune");
     }
 
     public void clearPanel() {
@@ -123,4 +125,10 @@ public class PanelSearchBill extends javax.swing.JPanel implements DeleteObjectL
         tmr.azuriraj(racuni);
 
     }
+
+    public void updateTable() throws Exception {
+        racuni = CommunicationController.getInstance().selectAllBills();
+        tmr.azuriraj(racuni);
+    }
+
 }

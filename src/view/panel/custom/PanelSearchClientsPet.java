@@ -9,7 +9,6 @@ import controller.CommunicationController;
 import domain.Klijent;
 import domain.Zivotinja;
 import domain.iFrmValue;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,13 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelZivotinja;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchClientsPet extends javax.swing.JPanel implements SearchListener, MyTableListener, iFrmValue {
+public class PanelSearchClientsPet extends javax.swing.JPanel implements TableDataListener, SearchListener, MyTableListener, iFrmValue {
 
     private TableModelZivotinja tmz;
     private List<Zivotinja> zivotinje;
@@ -38,7 +38,6 @@ public class PanelSearchClientsPet extends javax.swing.JPanel implements SearchL
         initComponents();
         zivotinje = new ArrayList<>();
         zivotinja = new Zivotinja();
-        
 
     }
 
@@ -75,6 +74,7 @@ public class PanelSearchClientsPet extends javax.swing.JPanel implements SearchL
         panelSearchClientsPet.preparePanel(tmz);
         panelSearchClientsPet.addListener(this);
         panelSearchClientsPet.addMyTableListener(this);
+        panelSearchClientsPet.setPanelTitle("Pretraži klijentove životinje");
     }
 
     public void clearPanel() {
@@ -116,5 +116,10 @@ public class PanelSearchClientsPet extends javax.swing.JPanel implements SearchL
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchClientsPet.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void updateTable() throws Exception {
+        
     }
 }

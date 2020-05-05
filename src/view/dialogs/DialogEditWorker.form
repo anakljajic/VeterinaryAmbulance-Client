@@ -42,6 +42,7 @@
                   <Component id="btnExit" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

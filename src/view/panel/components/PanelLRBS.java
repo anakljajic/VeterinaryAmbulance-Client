@@ -140,20 +140,28 @@ public class PanelLRBS extends javax.swing.JPanel implements iFrmValue {
     @Override
     public Object getValue() {
         if (firstRadioButton.isSelected()) {
-            return firstRadioButton.getText();
+            return true;
         } else {
-            return secondRadioButton.getText();
+            return false;
         }
     }
 
     @Override
     public void setValue(Object object) {
-        String value = (String) object;
+        boolean value = (boolean) object;
 
-        if (value.equalsIgnoreCase(firstRadioButton.getText())) {
+        if (value) {
             firstRadioButton.setSelected(true);
         } else {
             secondRadioButton.setSelected(true);
+        }
+    }
+
+    public Object getValueString() {
+        if (firstRadioButton.isSelected()) {
+            return firstRadioButton.getText();
+        } else {
+            return secondRadioButton.getText();
         }
     }
 }

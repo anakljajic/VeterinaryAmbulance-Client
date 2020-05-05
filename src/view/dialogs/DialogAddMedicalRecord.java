@@ -145,7 +145,9 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelAddMedicalRecord.clearPanel();
             btnAddMedicalRecord.setEnabled(false);
-            btnExit.setEnabled(false);
+            btnExit.setEnabled(true);
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
+            dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddMedicalRecord.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -206,6 +208,7 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
         panelSearchPet.preparePanel();
         panelSearchPet.addChooseListener(this);
         panelAddMedicalRecord.setDisabledFields();
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     @Override

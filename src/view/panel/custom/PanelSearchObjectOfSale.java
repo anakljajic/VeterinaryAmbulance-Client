@@ -17,16 +17,16 @@ import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import listeners.ChooseListener;
 import listeners.DeleteObjectListener;
-import listeners.ItemOfBillChooseListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelPredmetProdaje;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchObjectOfSale extends javax.swing.JPanel implements DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
+public class PanelSearchObjectOfSale extends javax.swing.JPanel implements TableDataListener, DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
 
     private TableModelPredmetProdaje tmpp;
     private List<PredmetProdaje> predmetiProdaje;
@@ -76,6 +76,7 @@ public class PanelSearchObjectOfSale extends javax.swing.JPanel implements Delet
         panelSearchObjectOfSale.preparePanel(tmpp);
         panelSearchObjectOfSale.addListener(this);
         panelSearchObjectOfSale.addMyTableListener(this);
+        panelSearchObjectOfSale.setPanelTitle("Pretraži predmete prodaje");
     }
 
     public void clearPanel() {
@@ -146,4 +147,9 @@ public class PanelSearchObjectOfSale extends javax.swing.JPanel implements Delet
 //            item.onChooseItemOfBill(predmet);
 //        }
 //    }
+    @Override
+    public void updateTable() throws Exception {
+        predmetiProdaje = CommunicationController.getInstance().selectAllObjectOfSale();
+        tmpp.azuriraj(predmetiProdaje);
+    }
 }

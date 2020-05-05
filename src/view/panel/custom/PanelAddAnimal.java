@@ -149,7 +149,7 @@ public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, Cus
         String breed = String.valueOf(panelAnimalBreed.getValue());
         String type = String.valueOf(panelAnimalType.getValue());
         String color = String.valueOf(panelAnimalColor.getValue());
-        String gender = String.valueOf(panelAnimalGender.getValue());
+        String gender = String.valueOf(panelAnimalGender.getValueString());
         Date birthdate = (Date) panelAnimalDate.getValue();
         Zivotinja zivotinja = new Zivotinja(id, name, breed, type, color, gender, birthdate, klijent);
         return zivotinja;

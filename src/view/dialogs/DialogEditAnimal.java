@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author anakl
  */
 public class DialogEditAnimal extends javax.swing.JDialog {
-    
+
     private Zivotinja zivotinja;
     private Klijent klijent;
 
@@ -32,7 +32,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
         this.zivotinja = zivotinja;
         prepareView();
     }
-    
+
     public DialogEditAnimal(Zivotinja zivotinja, Klijent klijent) {
         initComponents();
         setLocationRelativeTo(null);
@@ -94,9 +94,11 @@ public class DialogEditAnimal extends javax.swing.JDialog {
             zivotinja = (Zivotinja) CommunicationController.getInstance().updateDomainObject(zivotinja);
             JOptionPane.showMessageDialog(null, "Uspesno izmenjen ljubimac " + zivotinja.getIme()
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-            
+
             panelEditAnimal.clearPanel();
             btnSaveAnimal.setEnabled(false);
+            ((DialogEditClient) this.getParent()).updateTable();
+            dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogEditAnimal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -113,5 +115,5 @@ public class DialogEditAnimal extends javax.swing.JDialog {
         panelEditAnimal.setValue(zivotinja);
         this.getContentPane().setBackground(Color.WHITE);
     }
-    
+
 }

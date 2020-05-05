@@ -5,11 +5,24 @@
  */
 package view.dialogs;
 
+import controller.CommunicationController;
+import domain.DomainObject;
+import domain.Lek;
+import domain.PredmetProdaje;
+import domain.Usluga;
+import domain.iFrmValue;
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import listeners.GenerateListener;
+import view.main.FrmMainWork;
+
 /**
  *
  * @author anakl
  */
-public class DialogAddService extends javax.swing.JDialog {
+public class DialogAddService extends javax.swing.JDialog implements iFrmValue, GenerateListener {
 
     /**
      * Creates new form DialogAddService
@@ -17,11 +30,15 @@ public class DialogAddService extends javax.swing.JDialog {
     public DialogAddService(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+        prepareView();
     }
 
     public DialogAddService() {
         initComponents();
         setLocationRelativeTo(null);
+        prepareView();
+
     }
 
     /**
@@ -33,23 +50,121 @@ public class DialogAddService extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelAddService = new view.panel.custom.PanelAddService();
+        btnExit = new javax.swing.JButton();
+        btnAddService = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        btnExit.setBackground(new java.awt.Color(47, 60, 127));
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Odustani");
+        btnExit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnExit.setFocusPainted(false);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
+        btnAddService.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddService.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddService.setText("Dodaj uslugu");
+        btnAddService.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAddService.setFocusPainted(false);
+        btnAddService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddServiceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(panelAddService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddService, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelAddService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddService, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddServiceActionPerformed
+        try {
+            PredmetProdaje pp = (PredmetProdaje) panelAddService.getValue();
+            pp = (PredmetProdaje) CommunicationController.getInstance().updateDomainObject(pp);
+            Usluga usluga = new Usluga(pp, pp.getNaziv());
+            usluga = (Usluga) CommunicationController.getInstance().insertDomainObject(usluga);
+            JOptionPane.showMessageDialog(null, "Uspesno insertovan predmet prodaje: " + usluga.getNaziv()
+                    + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            panelAddService.clearPanel();
+            btnAddService.setEnabled(false);
+            ((DialogAddStorage) this.getParent()).refreshTable();
+            dispose();
+        } catch (Exception ex) {
+            Logger.getLogger(DialogAddProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAddServiceActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddService;
+    private javax.swing.JButton btnExit;
+    private view.panel.custom.PanelAddService panelAddService;
     // End of variables declaration//GEN-END:variables
+
+    private void prepareView() {
+        panelAddService.preparePanel();
+        panelAddService.addListener(this);
+        this.getContentPane().setBackground(Color.WHITE);
+    }
+
+    @Override
+    public Object getValue() {
+        return panelAddService.getValue();
+    }
+
+    @Override
+    public void setValue(Object object) {
+        System.out.println("Not implemented");
+    }
+
+    @Override
+    public DomainObject generateOdo(DomainObject domainObject) throws Exception {
+        try {
+
+            DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
+
+            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
+                    "Uspeh", JOptionPane.INFORMATION_MESSAGE
+            );
+
+            btnAddService.setEnabled(true);
+
+            return odo;
+        } catch (Exception ex) {
+            Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
+        }
+    }
 }

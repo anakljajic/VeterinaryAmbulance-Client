@@ -24,6 +24,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
 
     private Klijent klijent;
     private Zivotinja zivotinja;
+    private String activePanel;
 
     /**
      * Creates new form DialogAddClient
@@ -34,6 +35,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         setLocationRelativeTo(null);
         klijent = new Klijent();
         zivotinja = new Zivotinja();
+        activePanel = ((FrmMainWork) this.getParent()).getActivePanel();
         prepareView();
     }
 
@@ -57,6 +59,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         setBackground(new java.awt.Color(255, 255, 255));
 
         btnClearClient.setBackground(new java.awt.Color(47, 60, 127));
+        btnClearClient.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnClearClient.setForeground(new java.awt.Color(255, 255, 255));
         btnClearClient.setText("Izbriši");
         btnClearClient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -76,7 +79,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         });
 
         btnAddClient.setBackground(new java.awt.Color(47, 60, 127));
-        btnAddClient.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        btnAddClient.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnAddClient.setForeground(new java.awt.Color(255, 255, 255));
         btnAddClient.setText("Dodaj klijenta");
         btnAddClient.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -99,6 +102,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         panelAddClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Dodaj klijenta"));
 
         btnClearAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnClearAnimal.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnClearAnimal.setForeground(new java.awt.Color(255, 255, 255));
         btnClearAnimal.setText("Izbriši");
         btnClearAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -118,6 +122,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         });
 
         btnAddAnimal.setBackground(new java.awt.Color(47, 60, 127));
+        btnAddAnimal.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         btnAddAnimal.setForeground(new java.awt.Color(255, 255, 255));
         btnAddAnimal.setText("Dodaj životinju");
         btnAddAnimal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -164,12 +169,12 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panelAddClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddClient, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClearClient, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClearAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddClient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearClient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddAnimal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClearAnimal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -190,6 +195,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
             panelAddClient.clearPanel();
             btnAddClient.setEnabled(false);
             btnClearClient.setEnabled(false);
+
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -210,6 +216,9 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
             panelAddAnimal.clearPanel();
             btnAddAnimal.setEnabled(false);
             btnClearAnimal.setEnabled(false);
+            System.out.println("AKTIVAN PANEL: " + activePanel);
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
+            this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }

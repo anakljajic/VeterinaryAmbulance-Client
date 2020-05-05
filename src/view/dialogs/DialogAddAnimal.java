@@ -26,6 +26,7 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
 
     private Klijent klijent;
     private Zivotinja zivotinja;
+    private DialogEditClient dialogEditClient;
 
     /**
      * Creates new form DialogAddAnimal
@@ -33,12 +34,14 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
     public DialogAddAnimal(java.awt.Frame parent, boolean modal, Klijent klijent) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         this.klijent = klijent;
         prepareView();
     }
 
     public DialogAddAnimal(Klijent klijent) {
         initComponents();
+        setLocationRelativeTo(null);
         this.klijent = klijent;
         prepareView();
     }
@@ -73,13 +76,11 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelAddAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSavePet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(panelAddAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,6 +104,10 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelAddAnimal.clearPanel();
             btnSavePet.setEnabled(false);
+            if (evt.getSource() == dialogEditClient) {
+                ((DialogEditClient) this.getParent()).updateTable();
+                dispose();
+            }
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }

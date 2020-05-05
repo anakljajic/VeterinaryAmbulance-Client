@@ -9,7 +9,6 @@ import controller.CommunicationController;
 import domain.DomainObject;
 import domain.Klijent;
 import domain.iFrmValue;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,16 +16,16 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import listeners.DeleteObjectListener;
-import listeners.DialogListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelKlijent;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchClient extends javax.swing.JPanel implements SearchListener, MyTableListener, iFrmValue, DeleteObjectListener {
+public class PanelSearchClient extends javax.swing.JPanel implements SearchListener, MyTableListener, iFrmValue, DeleteObjectListener, TableDataListener {
 
     private TableModelKlijent tmk;
     private List<Klijent> klijenti;
@@ -75,6 +74,8 @@ public class PanelSearchClient extends javax.swing.JPanel implements SearchListe
         panelSearchClient.preparePanel(tmk);
         panelSearchClient.addListener(this);
         panelSearchClient.addMyTableListener(this);
+        panelSearchClient.setPanelTitle("Pretraži klijente");
+
     }
 
     public void clearPanel() {
@@ -125,5 +126,10 @@ public class PanelSearchClient extends javax.swing.JPanel implements SearchListe
         klijenti = CommunicationController.getInstance().selectAllClients();
         tmk.azuriraj(klijenti);
 
+    }
+
+    public void updateTable() throws Exception {
+        klijenti = CommunicationController.getInstance().selectAllClients();
+        tmk.azuriraj(klijenti);
     }
 }

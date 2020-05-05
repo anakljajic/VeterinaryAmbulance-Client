@@ -18,13 +18,14 @@ import javax.swing.table.AbstractTableModel;
 import listeners.DeleteObjectListener;
 import listeners.MyTableListener;
 import listeners.SearchListener;
+import listeners.TableDataListener;
 import view.tableModels.TableModelRadnik;
 
 /**
  *
  * @author anakl
  */
-public class PanelSearchWorker extends javax.swing.JPanel implements DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
+public class PanelSearchWorker extends javax.swing.JPanel implements TableDataListener, DeleteObjectListener, SearchListener, MyTableListener, iFrmValue {
 
     private TableModelRadnik tmr;
     private List<Radnik> radnici;
@@ -73,6 +74,7 @@ public class PanelSearchWorker extends javax.swing.JPanel implements DeleteObjec
         panelSearchWorker.preparePanel(tmr);
         panelSearchWorker.addListener(this);
         panelSearchWorker.addMyTableListener(this);
+        panelSearchWorker.setPanelTitle("Pretraži radnike");
     }
 
     public void clearPanel() {
@@ -123,5 +125,11 @@ public class PanelSearchWorker extends javax.swing.JPanel implements DeleteObjec
         radnici = CommunicationController.getInstance().selectAllWorkers();
         tmr.azuriraj(radnici);
 
+    }
+
+    @Override
+    public void updateTable() throws Exception {
+        radnici = CommunicationController.getInstance().selectAllWorkers();
+        tmr.azuriraj(radnici);
     }
 }

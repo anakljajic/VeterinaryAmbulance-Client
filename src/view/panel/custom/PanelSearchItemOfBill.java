@@ -60,6 +60,7 @@ public class PanelSearchItemOfBill extends javax.swing.JPanel implements MyTable
     public void preparePanel() {
         tmsr = new TableModelStavkaRacuna(stavkeRacuna);
         panelSearchItemOfBill.preparePanel(tmsr);
+        panelSearchItemOfBill.setPanelTitle("Pretraži stavke računa");
 //        panelSearchItemOfBill.addListener(this);
 //        panelSearchItemOfBill.addMyTableListener(this);
     }

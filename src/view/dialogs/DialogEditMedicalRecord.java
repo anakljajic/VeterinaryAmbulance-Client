@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import view.main.FrmMainWork;
 
 /**
  *
@@ -112,6 +113,7 @@ public class DialogEditMedicalRecord extends javax.swing.JDialog {
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditMedicalRecord.clearPanel();
             btnUpdate.setEnabled(false);
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
 
         } catch (Exception ex) {
