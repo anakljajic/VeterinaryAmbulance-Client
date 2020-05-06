@@ -34,13 +34,13 @@
                   <Component id="panelAddBill" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnAddItem" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="btnAddItem" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnClearItem" min="-2" pref="110" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnAdd" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="btnClearItem" min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace pref="243" max="32767" attributes="0"/>
+                      <Component id="btnAdd" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnClear" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="btnClear" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>

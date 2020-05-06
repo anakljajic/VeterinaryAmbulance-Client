@@ -19,7 +19,7 @@ import listeners.TextFieldListener;
  * @author anakl
  */
 public class PanelLTFS extends javax.swing.JPanel implements iFrmValue {
-
+    
     private List<TextFieldListener> textFieldListeners = new ArrayList<>();
 
     /**
@@ -89,52 +89,56 @@ public class PanelLTFS extends javax.swing.JPanel implements iFrmValue {
         label.setText(labelText);
         textField.setText(textFieldString);
     }
-
+    
     public void clearPanel() {
         this.setValue("");
     }
-
+    
     public JLabel getLabel() {
         return label;
     }
-
+    
     public void setLabel(JLabel label) {
         this.label = label;
     }
-
+    
     public JSeparator getSeparator() {
         return separator;
     }
-
+    
     public void setSeparator(JSeparator separator) {
         this.separator = separator;
     }
-
+    
     public JTextField getTextField() {
         return textField;
     }
-
+    
     public void setTextField(JTextField textField) {
         this.textField = textField;
     }
-
+    
     @Override
     public Object getValue() {
         return textField.getText();
     }
-
+    
     @Override
     public void setValue(Object object) {
         textField.setText((String) object);
     }
-
+    
     public void addListener(TextFieldListener toAdd) {
         textFieldListeners.add(toAdd);
     }
-
+    
     private void inputText() {
         for (TextFieldListener textFieldListener : textFieldListeners) {
             textFieldListener.onInputText(new TextEnterEvent(this));
         }
+    }
+    
+    public void setDisabledField() {
+        textField.setEnabled(false);
     }
 }

@@ -27,6 +27,7 @@ import listeners.CustomComponentListener;
 import listeners.GenerateListener;
 import listeners.MedicalRecordChooseListener;
 import view.dialogs.DialogChooseMedicalRecord;
+import view.panel.components.PanelLCBS;
 import view.panel.components.PanelLTFBS;
 import view.panel.components.PanelLTFS;
 
@@ -123,8 +124,8 @@ public class PanelAddBill extends javax.swing.JPanel implements iFrmValue, Custo
             panelBillID.addListener(this);
             panelBillMedicalRecordID.addListener(this);
             panelBillID.getTextField().setEnabled(false);
-            panelBillMedicalRecordID.setEnabled(false);
-            panelBillWorker.setEnabled(false);
+            panelBillMedicalRecordID.getTextField().setEnabled(false);
+            panelBillWorker.setDisabledField();
             panelBillID.setElementText("Generiši", "Šifra računa", "");
             panelBillMedicalRecordID.setElementText("Izaberi karton", "Šifra kartona", "");
             panelBillDateCreated.setElementText("Datum kreiranja", new Date());
@@ -144,7 +145,7 @@ public class PanelAddBill extends javax.swing.JPanel implements iFrmValue, Custo
         panelBillID.clearPanel();
         panelBillMedicalRecordID.clearPanel();
         panelBillDateCreated.clearPanel();
-        panelBillWorker.clearPanel();
+
         panelBillTotalPriceTax.clearPanel();
         panelBillTotalPriceNoTax.clearPanel();
     }
@@ -200,6 +201,30 @@ public class PanelAddBill extends javax.swing.JPanel implements iFrmValue, Custo
     public void chooseMedicalRecord(Karton karton) {
         this.karton = karton;
         panelBillMedicalRecordID.setValue(karton.getKartonID() + "");
+    }
+
+    public PanelLCBS getPanelBillTax() {
+        return panelBillTax;
+    }
+
+    public void setPanelBillTax(PanelLCBS panelBillTax) {
+        this.panelBillTax = panelBillTax;
+    }
+
+    public PanelLTFS getPanelBillTotalPriceNoTax() {
+        return panelBillTotalPriceNoTax;
+    }
+
+    public void setPanelBillTotalPriceNoTax(PanelLTFS panelBillTotalPriceNoTax) {
+        this.panelBillTotalPriceNoTax = panelBillTotalPriceNoTax;
+    }
+
+    public PanelLTFS getPanelBillTotalPriceTax() {
+        return panelBillTotalPriceTax;
+    }
+
+    public void setPanelBillTotalPriceTax(PanelLTFS panelBillTotalPriceTax) {
+        this.panelBillTotalPriceTax = panelBillTotalPriceTax;
     }
 
 }

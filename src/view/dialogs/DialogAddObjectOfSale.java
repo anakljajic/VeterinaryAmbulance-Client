@@ -22,7 +22,7 @@ import listeners.ItemOfBillChooseListener;
  * @author anakl
  */
 public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmValue, ChooseListener {
-    
+
     private BigDecimal totalPriceWithTax = new BigDecimal(0);
     private BigDecimal totalPriceNoTax = new BigDecimal(0);
     private int amount = 0;
@@ -38,7 +38,7 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         initComponents();
         setLocationRelativeTo(null);
         prepareView();
-        
+
     }
 
     /**
@@ -153,14 +153,14 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceTax.setElementText("Cena sa PDV-om", "");
         panelObjectOfSaleTax.setElementText("PDV", "");
         panelObjectOfSaleAmount.setEnabled(true);
-        panelObjectOfSaleName.setEnabled(false);
-        panelObjectOfSalePriceNoTax.setEnabled(false);
-        panelObjectOfSalePriceTax.setEnabled(false);
-        panelObjectOfSaleTax.setEnabled(false);
+        panelObjectOfSaleName.setDisabledField();
+        panelObjectOfSalePriceNoTax.setDisabledField();
+        panelObjectOfSalePriceTax.setDisabledField();
+        panelObjectOfSaleTax.setDisabledField();
         panelSearchObjectOfSale.addChooseListener(this);
         this.getContentPane().setBackground(Color.WHITE);
     }
-    
+
     @Override
     public Object getValue() {
         StavkaRacuna sr = new StavkaRacuna();
@@ -176,7 +176,7 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         sr.setUkupnaCenaSaPorezom(totalPriceWithTax.multiply(BigDecimal.valueOf(amount)));
         return sr;
     }
-    
+
     @Override
     public void setValue(Object object) {
         PredmetProdaje pp = (PredmetProdaje) object;
@@ -184,9 +184,9 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceNoTax.setValue(pp.getCenaBezPoreza() + "");
         panelObjectOfSalePriceTax.setValue(pp.getCenaSaPorezom());
         panelObjectOfSaleTax.setValue(pp.getPoreskaStopa());
-        
+
     }
-    
+
     public void clearPanel() {
         panelObjectOfSaleAmount.clearPanel();
         panelObjectOfSaleName.clearPanel();
@@ -195,11 +195,11 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSaleTax.clearPanel();
         prepareView();
     }
-    
+
     public void addListener(ItemOfBillChooseListener toAdd) {
         itemOfBillChooseListeners.add(toAdd);
     }
-    
+
     @Override
     public void onChooseOdo(DomainObject odo) throws Exception {
         predmet = (PredmetProdaje) odo;
@@ -208,7 +208,7 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         panelObjectOfSalePriceTax.setValue(predmet.getCenaSaPorezom() + "");
         panelObjectOfSaleTax.setValue(predmet.getPoreskaStopa().getVrednost() + "");
     }
-    
+
     public void chooseItemOfBill(StavkaRacuna stavkaRacuna) {
         for (ItemOfBillChooseListener itemOfBillChooseListener : itemOfBillChooseListeners) {
             itemOfBillChooseListener.onChooseItemOfBill(stavkaRacuna);

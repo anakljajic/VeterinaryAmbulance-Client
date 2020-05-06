@@ -96,6 +96,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
             panelEditAnimal.clearPanel();
             btnSaveAnimal.setEnabled(false);
             dialogEditClient.updateTable();
+            dialogEditClient.dispose();
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogEditAnimal.class.getName()).log(Level.SEVERE, null, ex);

@@ -8,17 +8,20 @@ package view.panel.custom;
 import domain.BojaZivotinja;
 import domain.Klijent;
 import domain.RasaMacke;
+import domain.RasaPsa;
 import domain.VrstaZivotinje;
 import domain.Zivotinja;
 import domain.iFrmValue;
+import events.SelectionChangeEvent;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import listeners.ComboBoxListener;
 
 /**
  *
  * @author anakl
  */
-public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
+public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue, ComboBoxListener {
 
     private Klijent klijent;
 
@@ -65,13 +68,12 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelAnimalID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAnimalName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelAnimalBreed, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
+                    .addComponent(panelAnimalBreed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAnimalColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAnimalGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAnimalDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAnimalClientID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelAnimalType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(panelAnimalType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +82,9 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
                 .addComponent(panelAnimalID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelAnimalBreed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelAnimalColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -90,9 +94,7 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
                 .addComponent(panelAnimalDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelAnimalClientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelAnimalType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -109,6 +111,7 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
     // End of variables declaration//GEN-END:variables
 
     public void preparePanel() {
+        panelAnimalType.addListener(this);
         panelAnimalID.getTextField().setEnabled(false);
         panelAnimalID.setElementText("Šifra životinje", "");
         panelAnimalName.setElementText("Ime", "");
@@ -156,6 +159,16 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
         panelAnimalDate.setValue(zivotinja.getDatumRodjenja());
         panelAnimalColor.setValue(zivotinja.getBoja());
         panelAnimalID.setValue(zivotinja.getZivotinjaID() + "");
+    }
+
+    @Override
+    public void onChangeSelected(SelectionChangeEvent evt, Object object) {
+        VrstaZivotinje vz = (VrstaZivotinje) object;
+        if (vz == VrstaZivotinje.Macka) {
+            panelAnimalBreed.setElementText("Rasa", new DefaultComboBoxModel<>(RasaMacke.values()));
+        } else {
+            panelAnimalBreed.setElementText("Rasa", new DefaultComboBoxModel<>(RasaPsa.values()));
+        }
     }
 
 }

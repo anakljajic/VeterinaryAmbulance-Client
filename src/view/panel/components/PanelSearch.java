@@ -182,7 +182,13 @@ public class PanelSearch extends javax.swing.JPanel implements iFrmValue, Custom
         Border border = BorderFactory.createTitledBorder(value);
         panelSearch.setBorder(border);
     }
-    
-    
+
+    public PanelTFBS getPanelSearchCriteria() {
+        return panelSearchCriteria;
+    }
+
+    public void setPanelSearchCriteria(PanelTFBS panelSearchCriteria) {
+        this.panelSearchCriteria = panelSearchCriteria;
+    }
 
 }

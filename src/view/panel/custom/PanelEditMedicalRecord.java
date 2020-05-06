@@ -93,6 +93,7 @@ public class PanelEditMedicalRecord extends javax.swing.JPanel implements iFrmVa
         panelMedicalRecordDate.setElementText("Datum kreiranja", new Date());
         panelMedicalRecordWorker.setElementText("Radnik", "");
         panelMedicalRecordAnimal.setElementText("Životinja", "");
+        setDisabledPanels();
 
     }
 
@@ -121,6 +122,11 @@ public class PanelEditMedicalRecord extends javax.swing.JPanel implements iFrmVa
         panelMedicalRecordAnimal.setValue(karton.getZivotinja().getIme() + "");
         panelMedicalRecordNote.setValue(karton.getNapomena());
         panelMedicalRecordDate.setValue(karton.getDatumKreiranja());
-        panelMedicalRecordWorker.setValue(karton.getRadnik().getIme() + "");
+        panelMedicalRecordWorker.setValue(karton.getRadnik().toString());
+    }
+
+    public void setDisabledPanels() {
+        panelMedicalRecordWorker.setDisabledField();
+        panelMedicalRecordAnimal.setDisabledField();
     }
 }

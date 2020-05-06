@@ -31,14 +31,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="panelAnimalID" max="32767" attributes="0"/>
                   <Component id="panelAnimalName" max="32767" attributes="0"/>
-                  <Component id="panelAnimalBreed" alignment="0" pref="424" max="32767" attributes="0"/>
+                  <Component id="panelAnimalBreed" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelAnimalColor" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelAnimalGender" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelAnimalDate" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelAnimalClientID" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelAnimalType" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,7 +48,9 @@
               <Component id="panelAnimalID" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="panelAnimalName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="panelAnimalType" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="panelAnimalBreed" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="panelAnimalColor" min="-2" max="-2" attributes="0"/>
@@ -59,9 +60,7 @@
               <Component id="panelAnimalDate" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="panelAnimalClientID" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="panelAnimalType" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

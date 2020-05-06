@@ -6,6 +6,7 @@
 package view.tableModels;
 
 import domain.Zivotinja;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -16,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelZivotinja extends AbstractTableModel {
 
     private List<Zivotinja> zivotinje;
-    String[] columnNames = new String[]{"Ime", "Vrsta", "Rasa", "Pol", "Datum rodjenja", "Boja"};
+    String[] columnNames = new String[]{"Ime", "Vrsta", "Rasa", "Pol", "Datum rođenja", "Boja"};
 
     public TableModelZivotinja(List<Zivotinja> zivotinje) {
         this.zivotinje = zivotinje;
@@ -45,7 +46,7 @@ public class TableModelZivotinja extends AbstractTableModel {
             case 3:
                 return z.getPol();
             case 4:
-                return z.getDatumRodjenja();
+                return new SimpleDateFormat("dd.MM.yyyy").format(z.getDatumRodjenja().getTime());
             case 5:
                 return z.getBoja();
             default:

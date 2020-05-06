@@ -9,10 +9,12 @@ import controller.CommunicationController;
 import domain.DomainObject;
 import domain.Racun;
 import domain.iFrmValue;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import listeners.DeleteObjectListener;
 import listeners.MyTableListener;
@@ -83,9 +85,8 @@ public class PanelSearchBill extends javax.swing.JPanel implements TableDataList
     @Override
     public AbstractTableModel searchOdo(String criteria) throws Exception {
         try {
-//            klijenti = CommunicationController.getInstance().searchClientsWithCriteria(criteria);
-//            JOptionPane.showMessageDialog(this, "Uspesno vraceni klijenti!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-            racuni = CommunicationController.getInstance().selectAllBills();
+            racuni = CommunicationController.getInstance().selectAllBillsFromDate(criteria);
+            JOptionPane.showMessageDialog(this, "Uspesno vraceni racuni!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             return new TableModelRacun(racuni);
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -129,6 +130,17 @@ public class PanelSearchBill extends javax.swing.JPanel implements TableDataList
     public void updateTable() throws Exception {
         racuni = CommunicationController.getInstance().selectAllBills();
         tmr.azuriraj(racuni);
+    }
+
+    public void stornoBill(DomainObject odo) {
+        try {
+            racun = (Racun) odo;
+            racun = (Racun) CommunicationController.getInstance().setStornoBill(odo);
+            updateTable();
+
+        } catch (Exception ex) {
+            Logger.getLogger(PanelSearchBill.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

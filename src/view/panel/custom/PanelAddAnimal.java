@@ -202,10 +202,31 @@ public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, Cus
     public void onChangeSelected(SelectionChangeEvent evt, Object object) {
         VrstaZivotinje vz = (VrstaZivotinje) object;
         if (vz == VrstaZivotinje.Macka) {
-            panelAnimalBreed.setElementText("Rasa: ", new DefaultComboBoxModel<>(RasaMacke.values()));
+            panelAnimalBreed.setElementText("Rasa", new DefaultComboBoxModel<>(RasaMacke.values()));
         } else {
-            panelAnimalBreed.setElementText("Rasa: ", new DefaultComboBoxModel<>(RasaPsa.values()));
+            panelAnimalBreed.setElementText("Rasa:", new DefaultComboBoxModel<>(RasaPsa.values()));
         }
+    }
+
+    public void preparePanelDisabled() {
+        panelAnimalID.addListener(this);
+        panelAnimalType.addListener(this);
+        panelAnimalID.getTextField().setEnabled(false);
+        panelAnimalName.getTextField().setEnabled(false);
+        panelAnimalBreed.getComboBox().setEnabled(false);
+        panelAnimalType.getComboBox().setEnabled(false);
+        panelAnimalColor.getComboBox().setEnabled(false);
+        panelAnimalDate.getDatePicker().setEnabled(false);
+        panelAnimalGender.setEnabled(false);
+        panelAnimalID.setElementText("Generiši", "Šifra životinje", "");
+        panelAnimalName.setElementText("Ime", "");
+        panelAnimalDate.setElementText("Datum rođenja", new Date());
+        panelAnimalBreed.setElementText("Rasa", new DefaultComboBoxModel<>(RasaMacke.values()));
+        panelAnimalGender.setElementText("Pol", "Ženski", "Muški");
+        panelAnimalType.setElementText("Vrsta", new DefaultComboBoxModel<>(VrstaZivotinje.values()));
+        panelAnimalColor.setElementText("Boja", new DefaultComboBoxModel<>(BojaZivotinja.values()));
+        panelAnimalClientID.setElementText("Šifra klijenta", "");
+        panelAnimalClientID.getTextField().setEnabled(false);
     }
 
 }

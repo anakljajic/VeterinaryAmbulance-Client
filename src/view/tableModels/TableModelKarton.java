@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelKarton extends AbstractTableModel {
 
     private List<Karton> kartoni;
-    String[] columnNames = new String[]{"Klijent", "Zivotinja", "Vrsta", "Rasa", "Napomena", "Datum kreiranja"};
+    String[] columnNames = new String[]{"Klijent", "Životinja", "Vrsta", "Rasa", "Napomena", "Datum kreiranja"};
 
     public TableModelKarton(List<Karton> kartoni) {
         this.kartoni = kartoni;

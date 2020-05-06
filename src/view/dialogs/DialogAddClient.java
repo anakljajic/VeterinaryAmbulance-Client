@@ -192,10 +192,13 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
             klijent = (Klijent) CommunicationController.getInstance().updateDomainObject(klijent);
             JOptionPane.showMessageDialog(null, "Uspesno insertovan klijent " + klijent.getIme()
                     + " " + klijent.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+
             panelAddAnimal.getPanelAnimalClientID().setValue(panelAddClient.getPanelClientID().getValue());
             panelAddClient.clearPanel();
             btnAddClient.setEnabled(false);
             btnClearClient.setEnabled(false);
+            btnAddAnimal.setEnabled(true);
+            btnClearAnimal.setEnabled(true);
 
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -279,6 +282,8 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         panelAddAnimal.preparePanel();
         panelAddAnimal.addListener(this);
         this.getContentPane().setBackground(Color.WHITE);
+        btnAddAnimal.setEnabled(false);
+        btnClearAnimal.setEnabled(false);
     }
 
     public void clearPanel() {

@@ -138,6 +138,20 @@ public class CommunicationController {
         return (List<Karton>) response.getData();
     }
 
+    public List<Racun> selectAllBillsFromDate(String criteria) throws Exception {
+        RequestObject request = new RequestObject();
+        request.setOperation(Operation.OPERATION_SEARCH_BILL_WITH_CRITERIA);
+
+        request.setData(criteria);
+        sendRequest(request);
+        ResponseObject response = receiveResponse();
+
+        if (response.getException() != null) {
+            throw response.getException();
+        }
+        return (List<Racun>) response.getData();
+    }
+
     public List<Karton> selectAllMedicalRecords() throws Exception {
         RequestObject request = new RequestObject();
         request.setOperation(Operation.OPERATION_SELECT_ALL_MEDICAL_RECORDS);
@@ -214,6 +228,21 @@ public class CommunicationController {
     public DomainObject updateDomainObject(DomainObject odo) throws Exception {
         RequestObject request = new RequestObject();
         request.setOperation(Operation.OPERATION_UPDATE_DOMAIN_OBJECT);
+
+        request.setData(odo);
+
+        sendRequest(request);
+        ResponseObject response = receiveResponse();
+
+        if (response.getException() != null) {
+            throw response.getException();
+        }
+        return odo;
+    }
+
+    public DomainObject setStornoBill(DomainObject odo) throws Exception {
+        RequestObject request = new RequestObject();
+        request.setOperation(Operation.OPERATION_SET_STORNO_BILL);
 
         request.setData(odo);
 

@@ -6,6 +6,7 @@
 package view.tableModels;
 
 import domain.Racun;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -16,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelRacun extends AbstractTableModel {
 
     private List<Racun> racuni;
-    String[] columnNames = new String[]{"Sifra racuna", "Sifra kartona", "Klijent", "Ljubimac", "Datum kreiranja", "Radnik", "Ukupna cena bez PDV-a", "PDV", "Ukupna cena sa PDV-om", "Obradjen", "Storniran"};
+    String[] columnNames = new String[]{"Šifra računa", "Šifra kartona", "Klijent", "Ljubimac", "Datum kreiranja", "Radnik", "Ukupna cena bez PDV-a", "PDV", "Ukupna cena sa PDV-om", "Obrađen", "Storniran"};
 
     public TableModelRacun(List<Racun> racuni) {
         this.racuni = racuni;
@@ -45,7 +46,7 @@ public class TableModelRacun extends AbstractTableModel {
             case 3:
                 return r.getKarton().getZivotinja().getIme();
             case 4:
-                return r.getDatumKreiranja();
+                return new SimpleDateFormat("dd.MM.yyyy").format(r.getDatumKreiranja().getTime());
             case 5:
                 return r.getRadnik().toString();
             case 6:

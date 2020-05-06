@@ -72,6 +72,7 @@ public class PanelSearchClientsPet extends javax.swing.JPanel implements TableDa
     public void preparePanel() {
         tmz = new TableModelZivotinja(zivotinje);
         panelSearchClientsPet.preparePanel(tmz);
+        panelSearchClientsPet.getPanelSearchCriteria().setVisible(false);
         panelSearchClientsPet.addListener(this);
         panelSearchClientsPet.addMyTableListener(this);
         panelSearchClientsPet.setPanelTitle("Pretraži klijentove životinje");

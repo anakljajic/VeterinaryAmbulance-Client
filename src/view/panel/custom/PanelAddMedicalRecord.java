@@ -25,7 +25,7 @@ import view.panel.components.PanelLTFS;
  * @author anakl
  */
 public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmValue, CustomComponentListener {
-    
+
     private List<GenerateListener> generateListeners = new ArrayList<>();
     private Zivotinja zivotinja;
     private Radnik radnik;
@@ -38,7 +38,7 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         this.zivotinja = zivotinja;
         this.radnik = radnik;
     }
-    
+
     public PanelAddMedicalRecord() {
         initComponents();
         prepareView();
@@ -111,8 +111,10 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         panelMedicalRecordNote.setElementText("Napomena", "");
         panelMedicalRecordWorker.setElementText("Šifra radnika", "");
         panelMedicalRecordDateCreated.setElementText("Datum kreiranja", new Date());
+        panelMedicalRecordWorker.setDisabledField();
+        panelMedicalRecordAnimalID.setDisabledField();
     }
-    
+
     public void clearPanel() {
         panelMedicalRecordID.clearPanel();
         panelMedicalRecordAnimalID.clearPanel();
@@ -120,7 +122,7 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         panelMedicalRecordWorker.clearPanel();
         panelMedicalRecordDateCreated.clearPanel();
     }
-    
+
     @Override
     public Object getValue() {
         Long id = new Long((String) panelMedicalRecordID.getValue());
@@ -129,7 +131,7 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         Karton karton = new Karton(id, dateCreated, note, radnik, zivotinja);
         return karton;
     }
-    
+
     @Override
     public void setValue(Object object) {
         Karton karton = (Karton) object;
@@ -139,49 +141,49 @@ public class PanelAddMedicalRecord extends javax.swing.JPanel implements iFrmVal
         panelMedicalRecordDateCreated.setValue(karton.getDatumKreiranja());
         panelMedicalRecordWorker.setValue(karton.getRadnik().getRadnikID() + "");
     }
-    
+
     public void addListener(GenerateListener toAdd) {
         generateListeners.add(toAdd);
     }
-    
+
     @Override
     public void pressButton(ClickButtonEvent evt) {
         for (GenerateListener generateListener : generateListeners) {
             try {
-                
+
                 DomainObject odo = generateListener.generateOdo(new Karton());
-                
+
                 panelMedicalRecordID.setValue(odo.getObjectIDValue() + "");
             } catch (Exception ex) {
                 Logger.getLogger(PanelAddClient.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-    
+
     public PanelLTFS getPanelMedicalRecordAnimalID() {
         return panelMedicalRecordAnimalID;
     }
-    
+
     public void setPanelMedicalRecordAnimalID(PanelLTFS panelMedicalRecordAnimalID) {
         this.panelMedicalRecordAnimalID = panelMedicalRecordAnimalID;
     }
-    
+
     public PanelLTFS getPanelMedicalRecordWorker() {
         return panelMedicalRecordWorker;
     }
-    
+
     public void setPanelMedicalRecordWorker(PanelLTFS panelMedicalRecordWorker) {
         this.panelMedicalRecordWorker = panelMedicalRecordWorker;
     }
-    
+
     private void prepareView() {
         panelMedicalRecordAnimalID.setEnabled(false);
         panelMedicalRecordWorker.setEnabled(false);
     }
-    
+
     public void setDisabledFields() {
         panelMedicalRecordWorker.setEnabled(false);
         panelMedicalRecordAnimalID.setEnabled(false);
     }
-    
+
 }

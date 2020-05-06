@@ -405,8 +405,8 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete30px.png"))); // NOI18N
+        btnDelete.setBorder(null);
         btnDelete.setBorderPainted(false);
-        btnDelete.setContentAreaFilled(false);
         btnDelete.setFocusPainted(false);
         btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -422,9 +422,10 @@ public class FrmMainWork extends javax.swing.JFrame {
             }
         });
 
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit30px.png"))); // NOI18N
+        btnEdit.setBorder(null);
         btnEdit.setBorderPainted(false);
-        btnEdit.setContentAreaFilled(false);
         btnEdit.setFocusPainted(false);
         btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -440,9 +441,10 @@ public class FrmMainWork extends javax.swing.JFrame {
             }
         });
 
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add30px.png"))); // NOI18N
+        btnAdd.setBorder(null);
         btnAdd.setBorderPainted(false);
-        btnAdd.setContentAreaFilled(false);
         btnAdd.setFocusPainted(false);
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -497,7 +499,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelClientsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         panelMedicalRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -516,7 +518,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         panelBills.setBackground(new java.awt.Color(255, 255, 255));
@@ -535,7 +537,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelBillsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         panelStorage.setBackground(new java.awt.Color(255, 255, 255));
@@ -554,7 +556,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelStorageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         panelWorkers.setBackground(new java.awt.Color(255, 255, 255));
@@ -573,7 +575,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelWorkersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         panelWelcome.setBackground(new java.awt.Color(255, 255, 255));
@@ -591,7 +593,7 @@ public class FrmMainWork extends javax.swing.JFrame {
         );
         panelWelcomeLayout.setVerticalGroup(
             panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
         );
 
         layeredPane.setLayer(panelClients, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -660,7 +662,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,11 +671,11 @@ public class FrmMainWork extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnHomePage, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
-                                        .addComponent(btnAdd)
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnEdit)
+                                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnDelete)))))
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap())))
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -687,12 +689,12 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(horizontalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(scrollPane)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEdit)
-                    .addComponent(btnDelete)
-                    .addComponent(btnAdd))
+                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -754,7 +756,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             setTitleText("Rad sa: računima");
             enableButton(btnAdd);
             disableButton(btnEdit);
-            disableButton(btnDelete);
+            enableButton(btnDelete);
 
         }
         if (evt.getSource() == sidePanelMedicalReports) {
@@ -864,9 +866,6 @@ public class FrmMainWork extends javax.swing.JFrame {
     }//GEN-LAST:event_sidePanelElementsMousePressed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-//        setButtonBackground(btnAdd);
-//        resetButtonBackground(btnEdit);
-//        resetButtonBackground(btnDelete);
         if (activePanel == panelClients) {
             new DialogAddClient(this, true).setVisible(true);
 
@@ -880,7 +879,7 @@ public class FrmMainWork extends javax.swing.JFrame {
 
         }
         if (activePanel == panelBills) {
-            new DialogAddBill((Frame) SwingUtilities.getWindowAncestor(this), true).setVisible(true);
+            new DialogAddBill(this, true).setVisible(true);
 
         }
         if (activePanel == panelStorage) {
@@ -890,10 +889,6 @@ public class FrmMainWork extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-//        setButtonBackground(btnEdit);
-//        resetButtonBackground(btnAdd);
-//        resetButtonBackground(btnDelete);
-
         if (activePanel == panelClients) {
             new DialogEditClient(this, false, (Klijent) panelSearchClient.getValue()).setVisible(true);
         }
@@ -911,37 +906,14 @@ public class FrmMainWork extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        if (activePanel == panelClients) {
-//            try {
-//                panelSearchClient.removeObject((Klijent) panelSearchClient.getValue());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        if (activePanel == panelBills) {
-//            try {
-//                panelSearchBill.removeObject((DomainObject) panelSearchBill.getValue());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        if (activePanel == panelWorkers) {
-//            try {
-//                panelSearchWorker.removeObject((DomainObject) panelSearchWorker.getValue());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        if (activePanel == panelMedicalRecords) {
-//            try {
-//                panelSearchMedicalRecords.removeObject((DomainObject) panelSearchMedicalRecords.getValue());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        setButtonBackground(btnDelete);
-//        resetButtonBackground(btnEdit);
-//        resetButtonBackground(btnAdd);
+
+        if (activePanel == panelBills) {
+            try {
+                panelSearchBill.stornoBill((DomainObject) panelSearchBill.getValue());
+            } catch (Exception ex) {
+                Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         if (activePanel == panelStorage) {
             try {
                 panelSearchObjectOfSale.removeObject((DomainObject) panelSearchObjectOfSale.getValue());
@@ -1118,18 +1090,14 @@ public class FrmMainWork extends javax.swing.JFrame {
     }
 
     private void setButtonBackground(JButton button) {
-//        button.setBackground(new Color(251, 234, 235));
-        button.setBackground(new Color(47, 60, 127));
-        button.setBorderPainted(true);
-        Border border = BorderFactory.createLineBorder(new Color(47, 60, 127));
-        button.setBorder(border);
-        button.setPreferredSize(new Dimension(60, 25));
+        button.setBackground(new Color(251, 234, 235));
+//        button.setBackground(new Color(47, 60, 127));
+
     }
 
     private void resetButtonBackground(JButton button) {
         button.setBackground(new Color(255, 255, 255));
-        button.setPreferredSize(new Dimension(40, 20));
-        button.setBorderPainted(false);
+
     }
 
     public void refreshActivePanel() {

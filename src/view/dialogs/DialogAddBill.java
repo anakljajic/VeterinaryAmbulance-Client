@@ -12,6 +12,7 @@ import domain.Radnik;
 import domain.StavkaRacuna;
 import java.awt.Color;
 import java.awt.Frame;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,13 +30,15 @@ import view.tableModels.TableModelStavkaRacuna;
  * @author anakl
  */
 public class DialogAddBill extends javax.swing.JDialog implements GenerateListener, ItemOfBillChooseListener {
-    
+
     private Racun racun;
     private StavkaRacuna stavka;
     private Radnik radnik;
     private List<StavkaRacuna> stavkeRacuna;
     private TableModelStavkaRacuna tmsr;
     private DialogAddObjectOfSale dialogAddObjectOfSale;
+    private BigDecimal totalPriceWithTax = new BigDecimal(0);
+    private BigDecimal totalPriceNoTax = new BigDecimal(0);
 
     /**
      * Creates new form DialogAddBill
@@ -174,13 +177,13 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
                     .addComponent(panelAddBill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClearItem, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClearItem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -212,7 +215,13 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
 
     private void btnClearItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearItemActionPerformed
         int rowSelected = tableBillItems.getSelectedRow();
-        
+        totalPriceNoTax = new BigDecimal(panelAddBill.getPanelBillTotalPriceNoTax().getValue() + "");
+        totalPriceWithTax = new BigDecimal(panelAddBill.getPanelBillTotalPriceTax().getValue() + "");
+        totalPriceNoTax = totalPriceNoTax.subtract(stavkeRacuna.get(rowSelected).getUkupnaCenaBezPoreza());
+        totalPriceWithTax = totalPriceWithTax.subtract(stavkeRacuna.get(rowSelected).getUkupnaCenaSaPorezom());
+
+        panelAddBill.getPanelBillTotalPriceNoTax().setValue(totalPriceNoTax + "");
+        panelAddBill.getPanelBillTotalPriceTax().setValue(totalPriceWithTax + "");
         if (rowSelected != -1) {
             stavkeRacuna.remove(rowSelected);
             tmsr.azuriraj(stavkeRacuna);
@@ -224,11 +233,11 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             racun = (Racun) panelAddBill.getValue();
             CommunicationController.getInstance().updateDomainObject(racun);
             CommunicationController.getInstance().insertListDomainObject(stavkeRacuna);
-            JOptionPane.showMessageDialog(null, "Uspesno insertovan racun", "Uspeh",
+            JOptionPane.showMessageDialog(null, "Uspesno sačuvan račun!", "Uspeh",
                     JOptionPane.INFORMATION_MESSAGE);
             clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
-            dispose();
+            this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddBill.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -293,31 +302,33 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         panelAddBill.preparePanel();
         panelAddBill.addListener(this);
         this.getContentPane().setBackground(Color.WHITE);
+        panelAddBill.getPanelBillTotalPriceNoTax().setDisabledField();
+        panelAddBill.getPanelBillTotalPriceTax().setDisabledField();
     }
-    
+
     public void clearPanel() {
         panelAddBill.clearPanel();
         stavkeRacuna.clear();
         tmsr.azuriraj(stavkeRacuna);
     }
-    
+
     @Override
     public DomainObject generateOdo(DomainObject domainObject) throws Exception {
         try {
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-            
+
             JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + "!",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             btnAdd.setEnabled(true);
             btnClear.setEnabled(true);
-            
+
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
             throw ex;
         }
     }
-    
+
     @Override
     public void onChooseItemOfBill(StavkaRacuna stavkaRacuna) {
         stavkaRacuna.setStavkaRacunaID(Long.valueOf(stavkeRacuna.size() + 1));
@@ -329,5 +340,5 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         stavkeRacuna.add(stavkaRacuna);
         tmsr.azuriraj(stavkeRacuna);
     }
-    
+
 }
