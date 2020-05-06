@@ -46,6 +46,7 @@ public class DialogChooseMedicalRecord extends javax.swing.JDialog implements Ch
         btnPotvrdi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Izaberi karton");
 
         btnPotvrdi.setBackground(new java.awt.Color(47, 60, 127));
         btnPotvrdi.setForeground(new java.awt.Color(255, 255, 255));

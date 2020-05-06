@@ -9,9 +9,11 @@ import controller.CommunicationController;
 import domain.Klijent;
 import domain.Zivotinja;
 import java.awt.Color;
+import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import view.main.FrmMainWork;
 
 /**
@@ -19,7 +21,7 @@ import view.main.FrmMainWork;
  * @author anakl
  */
 public class DialogEditClient extends javax.swing.JDialog {
-
+    
     private Klijent klijent;
 
     /**
@@ -50,8 +52,9 @@ public class DialogEditClient extends javax.swing.JDialog {
         btnEditAnimal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Izmeni klijenta");
 
-        panelEditClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit client"));
+        panelEditClient.setBorder(javax.swing.BorderFactory.createTitledBorder("Izmeni klijenta"));
 
         btnExit.setBackground(new java.awt.Color(47, 60, 127));
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,7 +146,7 @@ public class DialogEditClient extends javax.swing.JDialog {
             panelEditClient.clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
-
+            
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -151,7 +154,7 @@ public class DialogEditClient extends javax.swing.JDialog {
 
     private void btnEditAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditAnimalActionPerformed
         Zivotinja zivotinja = (Zivotinja) panelSearchClientsPet.getValue();
-        new DialogEditAnimal((Zivotinja) panelSearchClientsPet.getValue(), klijent).setVisible(true);
+        new DialogEditAnimal((Frame) SwingUtilities.getWindowAncestor(this), true, (Zivotinja) panelSearchClientsPet.getValue(), klijent, this).setVisible(true);
     }//GEN-LAST:event_btnEditAnimalActionPerformed
 
     private void btnAddAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAnimalActionPerformed
@@ -175,9 +178,9 @@ public class DialogEditClient extends javax.swing.JDialog {
         panelSearchClientsPet.setTableData(klijent.getKlijentID());
         this.getContentPane().setBackground(Color.white);
     }
-
+    
     public void updateTable() throws Exception {
-        panelSearchClientsPet.updateTable();
+        panelSearchClientsPet.updateTableData(klijent.getKlijentID());
     }
-
+    
 }

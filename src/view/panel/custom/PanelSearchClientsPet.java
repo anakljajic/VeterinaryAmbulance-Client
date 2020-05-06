@@ -120,6 +120,11 @@ public class PanelSearchClientsPet extends javax.swing.JPanel implements TableDa
 
     @Override
     public void updateTable() throws Exception {
-        
+
+    }
+
+    public void updateTableData(Long id) throws Exception {
+        zivotinje = CommunicationController.getInstance().searchClientsPet(id);
+        tmz.azuriraj(zivotinje);
     }
 }

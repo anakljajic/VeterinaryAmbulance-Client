@@ -51,7 +51,7 @@ public class TableModelRadnik extends AbstractTableModel {
             case 6:
                 return r.getLozinka();
             case 7:
-                return r.getAdministrator();
+                return r.isAdministrator();
             default:
                 return "n/a";
         }

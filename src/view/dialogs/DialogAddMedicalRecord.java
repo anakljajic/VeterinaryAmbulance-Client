@@ -61,6 +61,7 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
         btnAddMedicalRecord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj karton");
 
         btnExit.setBackground(new java.awt.Color(47, 60, 127));
         btnExit.setForeground(new java.awt.Color(255, 255, 255));

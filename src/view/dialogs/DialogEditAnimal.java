@@ -12,6 +12,8 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import view.main.FrmLoginClient;
+import view.main.FrmMainWork;
 
 /**
  *
@@ -21,23 +23,18 @@ public class DialogEditAnimal extends javax.swing.JDialog {
 
     private Zivotinja zivotinja;
     private Klijent klijent;
+    private DialogEditClient dialogEditClient;
 
     /**
      * Creates new form DialogEditAnimal
      */
-    public DialogEditAnimal(java.awt.Frame parent, boolean modal, Zivotinja zivotinja) {
+    public DialogEditAnimal(java.awt.Frame parent, boolean modal, Zivotinja zivotinja, Klijent klijent, DialogEditClient dialogEditClient) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         this.zivotinja = zivotinja;
-        prepareView();
-    }
-
-    public DialogEditAnimal(Zivotinja zivotinja, Klijent klijent) {
-        initComponents();
-        setLocationRelativeTo(null);
-        this.zivotinja = zivotinja;
         this.klijent = klijent;
+        this.dialogEditClient = dialogEditClient;
         prepareView();
     }
 
@@ -54,6 +51,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
         btnSaveAnimal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Izmeni životinju");
 
         btnSaveAnimal.setBackground(new java.awt.Color(47, 60, 127));
         btnSaveAnimal.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,7 +95,7 @@ public class DialogEditAnimal extends javax.swing.JDialog {
 
             panelEditAnimal.clearPanel();
             btnSaveAnimal.setEnabled(false);
-            ((DialogEditClient) this.getParent()).updateTable();
+            dialogEditClient.updateTable();
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogEditAnimal.class.getName()).log(Level.SEVERE, null, ex);

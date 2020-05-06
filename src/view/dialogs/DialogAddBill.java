@@ -69,6 +69,7 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj račun");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));

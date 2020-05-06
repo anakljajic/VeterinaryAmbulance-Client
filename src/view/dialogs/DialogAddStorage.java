@@ -42,6 +42,7 @@ public class DialogAddStorage extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj tip prodaje");
 
         btnAddProduct.setBackground(new java.awt.Color(47, 60, 127));
         btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));

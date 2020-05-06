@@ -22,7 +22,7 @@ import listeners.ComboBoxListener;
  * @author anakl
  */
 public class PanelLCBS extends javax.swing.JPanel implements iFrmValue {
-    
+
     private List<ComboBoxListener> comboBoxListeners = new ArrayList<>();
 
     /**
@@ -90,65 +90,65 @@ public class PanelLCBS extends javax.swing.JPanel implements iFrmValue {
 
     public void setElementText(String labelText, List<DomainObject> comboBoxElements) {
         label.setText(labelText);
-        
+
         for (DomainObject comboBoxElement : comboBoxElements) {
             comboBox.addItem(comboBoxElement);
         }
     }
-    
+
     public void setElementText(String labelText, DefaultComboBoxModel cbModel) {
         label.setText(labelText);
         comboBox.setModel(cbModel);
     }
-    
+
     public void clearPanel() {
         comboBox.setSelectedIndex(0);
     }
-    
+
     @Override
     public Object getValue() {
         return comboBox.getSelectedItem();
     }
-    
+
     @Override
     public void setValue(Object object) {
         comboBox.setSelectedItem(object);
     }
-    
+
     public JComboBox<Object> getComboBox() {
         return comboBox;
     }
-    
+
     public void setComboBox(JComboBox<Object> comboBox) {
         this.comboBox = comboBox;
     }
-    
+
     public JLabel getLabel() {
         return label;
     }
-    
+
     public void setLabel(JLabel label) {
         this.label = label;
     }
-    
+
     public JSeparator getSeparator() {
         return separator;
     }
-    
+
     public void setSeparator(JSeparator separator) {
         this.separator = separator;
     }
-    
+
     public void addListener(ComboBoxListener toAdd) {
         comboBoxListeners.add(toAdd);
     }
-    
+
     private void changeSelection() {
         for (ComboBoxListener comboBoxListener : comboBoxListeners) {
-            comboBoxListener.onChangeSelected(new SelectionChangeEvent(this));
+            comboBoxListener.onChangeSelected(new SelectionChangeEvent(this), comboBox.getSelectedItem());
         }
     }
-    
+
     public void setTaxModel(List<PoreskaStopa> taxes) {
         for (PoreskaStopa tax : taxes) {
             comboBox.addItem(tax);

@@ -369,10 +369,10 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(sidePanelLayout.createSequentialGroup()
                 .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(sidePanelMedicalReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sidePanelBills, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(sidePanelBills, javax.swing.GroupLayout.PREFERRED_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 182, Short.MAX_VALUE)
                     .addGroup(sidePanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblWorkerLogo)
@@ -398,7 +398,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addComponent(sidePanelStorage, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(sidePanelWorkers, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(sidePanelExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -489,7 +489,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             panelClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClientsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSearchClient, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addComponent(panelSearchClient, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelClientsLayout.setVerticalGroup(
@@ -497,7 +497,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelClientsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         panelMedicalRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -508,7 +508,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             panelMedicalRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelMedicalRecordsLayout.setVerticalGroup(
@@ -516,7 +516,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelMedicalRecordsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchMedicalRecords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         panelBills.setBackground(new java.awt.Color(255, 255, 255));
@@ -527,7 +527,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             panelBillsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBillsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSearchBill, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addComponent(panelSearchBill, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBillsLayout.setVerticalGroup(
@@ -535,7 +535,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelBillsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         panelStorage.setBackground(new java.awt.Color(255, 255, 255));
@@ -546,7 +546,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             panelStorageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelStorageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelStorageLayout.setVerticalGroup(
@@ -554,7 +554,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelStorageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchObjectOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         panelWorkers.setBackground(new java.awt.Color(255, 255, 255));
@@ -565,7 +565,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             panelWorkersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelWorkersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSearchWorker, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                .addComponent(panelSearchWorker, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelWorkersLayout.setVerticalGroup(
@@ -573,7 +573,7 @@ public class FrmMainWork extends javax.swing.JFrame {
             .addGroup(panelWorkersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSearchWorker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         panelWelcome.setBackground(new java.awt.Color(255, 255, 255));
@@ -587,11 +587,11 @@ public class FrmMainWork extends javax.swing.JFrame {
         panelWelcome.setLayout(panelWelcomeLayout);
         panelWelcomeLayout.setHorizontalGroup(
             panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
         );
         panelWelcomeLayout.setVerticalGroup(
             panelWelcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
         );
 
         layeredPane.setLayer(panelClients, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -660,7 +660,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackgroundLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,7 +687,7 @@ public class FrmMainWork extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(horizontalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEdit)

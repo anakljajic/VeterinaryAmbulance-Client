@@ -9,16 +9,19 @@ import domain.BojaZivotinja;
 import domain.DomainObject;
 import domain.Klijent;
 import domain.RasaMacke;
+import domain.RasaPsa;
 import domain.VrstaZivotinje;
 import domain.Zivotinja;
 import domain.iFrmValue;
 import events.ClickButtonEvent;
+import events.SelectionChangeEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import listeners.ComboBoxListener;
 import listeners.CustomComponentListener;
 import listeners.GenerateListener;
 import view.panel.components.PanelLTFS;
@@ -27,7 +30,7 @@ import view.panel.components.PanelLTFS;
  *
  * @author anakl
  */
-public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, CustomComponentListener {
+public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, CustomComponentListener, ComboBoxListener {
 
     private List<GenerateListener> generateListeners = new ArrayList<>();
     private Klijent klijent;
@@ -119,6 +122,7 @@ public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, Cus
 
     public void preparePanel() {
         panelAnimalID.addListener(this);
+        panelAnimalType.addListener(this);
         panelAnimalID.getTextField().setEnabled(false);
         panelAnimalID.setElementText("Generiši", "Šifra životinje", "");
         panelAnimalName.setElementText("Ime", "");
@@ -149,7 +153,7 @@ public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, Cus
         String breed = String.valueOf(panelAnimalBreed.getValue());
         String type = String.valueOf(panelAnimalType.getValue());
         String color = String.valueOf(panelAnimalColor.getValue());
-        String gender = String.valueOf(panelAnimalGender.getValueString());
+        String gender = ((boolean) panelAnimalGender.getValue() ? "Muški" : "Ženski");
         Date birthdate = (Date) panelAnimalDate.getValue();
         Zivotinja zivotinja = new Zivotinja(id, name, breed, type, color, gender, birthdate, klijent);
         return zivotinja;
@@ -192,6 +196,16 @@ public class PanelAddAnimal extends javax.swing.JPanel implements iFrmValue, Cus
 
     public void setPanelAnimalClientID(PanelLTFS panelAnimalClientID) {
         this.panelAnimalClientID = panelAnimalClientID;
+    }
+
+    @Override
+    public void onChangeSelected(SelectionChangeEvent evt, Object object) {
+        VrstaZivotinje vz = (VrstaZivotinje) object;
+        if (vz == VrstaZivotinje.Macka) {
+            panelAnimalBreed.setElementText("Rasa: ", new DefaultComboBoxModel<>(RasaMacke.values()));
+        } else {
+            panelAnimalBreed.setElementText("Rasa: ", new DefaultComboBoxModel<>(RasaPsa.values()));
+        }
     }
 
 }

@@ -139,7 +139,7 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
         String breed = String.valueOf(panelAnimalBreed.getValue());
         String type = String.valueOf(panelAnimalType.getValue());
         String color = String.valueOf(panelAnimalColor.getValue());
-        String gender = String.valueOf(panelAnimalGender.getValue());
+        String gender = ((boolean) panelAnimalGender.getValue() ? "Muški" : "Ženski");
         Date birthdate = (Date) panelAnimalDate.getValue();
         Zivotinja zivotinja = new Zivotinja(id, name, breed, type, color, gender, birthdate, klijent);
         return zivotinja;
@@ -151,7 +151,7 @@ public class PanelEditAnimal extends javax.swing.JPanel implements iFrmValue {
         panelAnimalBreed.setValue(zivotinja.getZivotinjaID() + "");
         panelAnimalClientID.setValue(zivotinja.getKlijent().getKlijentID() + "");
         panelAnimalType.setValue(zivotinja.getVrsta());
-        panelAnimalGender.setValue(zivotinja.getPol().toString());
+        panelAnimalGender.setValue(zivotinja.getPol().equals("Muški"));
         panelAnimalName.setValue(zivotinja.getIme());
         panelAnimalDate.setValue(zivotinja.getDatumRodjenja());
         panelAnimalColor.setValue(zivotinja.getBoja());

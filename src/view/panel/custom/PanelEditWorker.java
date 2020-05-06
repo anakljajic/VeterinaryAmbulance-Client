@@ -112,7 +112,7 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
         panelWorkerTelephone.setElementText("Telefon", "");
         panelWorkerAdmin.setElementText("Administrator", "Da", "Ne");
     }
-    
+
     public void clearPanel() {
         panelWorkerID.clearPanel();
         panelWorkerAddress.clearPanel();
@@ -124,7 +124,7 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
         panelWorkerTelephone.clearPanel();
         panelWorkerAdmin.clearPanel();
     }
-    
+
     @Override
     public Object getValue() {
         Long id = new Long((String) panelWorkerID.getValue());
@@ -136,32 +136,24 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
         Date birthdate = (Date) panelWorkerBirthdate.getValue();
         String password = (String) panelWorkerPassword.getValue();
 //        int admin = (Integer) panelWorkerAdmin.getValue();
-        String admin = (String) panelWorkerAdmin.getValue();
-        int administrator = 1;
-        if (admin.equalsIgnoreCase("Da")) {
-            administrator = 1;
-        } else {
-            if (admin.equalsIgnoreCase("Ne")) {
-                administrator = 0;
-            }
-        }
-        
-        Radnik radnik = new Radnik(id, name, surname, username, password, birthdate, address, telephone, administrator);
+        boolean admin = (boolean) panelWorkerAdmin.getValue();
+
+        Radnik radnik = new Radnik(id, name, surname, username, password, birthdate, address, telephone, admin);
         return radnik;
     }
-    
+
     @Override
     public void setValue(Object object) {
         Radnik radnik = (Radnik) object;
         panelWorkerID.setValue(radnik.getRadnikID() + "");
         panelWorkerAddress.setValue(radnik.getAdresa());
-        panelWorkerAdmin.setValue(String.valueOf(radnik.getAdministrator()));
+        panelWorkerAdmin.setValue(String.valueOf(radnik.isAdministrator()));
         panelWorkerName.setValue(radnik.getIme());
         panelWorkerSurname.setValue(radnik.getPrezime());
         panelWorkerUsername.setValue(radnik.getKorisnikoIme());
         panelWorkerPassword.setValue(radnik.getLozinka());
         panelWorkerBirthdate.setValue(radnik.getDatumRodjenja());
         panelWorkerTelephone.setValue(radnik.getTelefon());
-        
+
     }
 }

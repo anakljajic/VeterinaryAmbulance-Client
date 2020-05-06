@@ -30,7 +30,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="panelWorkerBirthdate" pref="0" max="32767" attributes="0"/>
-                  <Component id="panelWorkerID" alignment="0" pref="394" max="32767" attributes="0"/>
+                  <Component id="panelWorkerID" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelWorkerName" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelWorkerSurname" alignment="0" max="32767" attributes="0"/>
                   <Component id="panelWorkerAddress" alignment="0" max="32767" attributes="0"/>

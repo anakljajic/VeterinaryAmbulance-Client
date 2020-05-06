@@ -59,6 +59,7 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
         btnSavePet = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj životinju");
         setBackground(new java.awt.Color(255, 255, 255));
 
         btnSavePet.setBackground(new java.awt.Color(47, 60, 127));
@@ -80,7 +81,7 @@ public class DialogAddAnimal extends javax.swing.JDialog implements iFrmValue, G
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSavePet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(panelAddAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(panelAddAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -60,16 +60,17 @@ public class DialogAddObjectOfSale extends javax.swing.JDialog implements iFrmVa
         btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj predmet prodaje");
 
         btnClear.setBackground(new java.awt.Color(47, 60, 127));
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
-        btnClear.setText("Clear");
+        btnClear.setText("Izbriši");
         btnClear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnClear.setFocusPainted(false);
 
         btnAdd.setBackground(new java.awt.Color(47, 60, 127));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Add");
+        btnAdd.setText("Dodaj");
         btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnAdd.setFocusPainted(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {

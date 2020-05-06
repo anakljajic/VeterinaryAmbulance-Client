@@ -147,17 +147,9 @@ public class PanelAddWorker extends javax.swing.JPanel implements iFrmValue, Cus
         Date birthdate = (Date) panelWorkerBirthdate.getValue();
         String password = (String) panelWorkerPassword.getValue();
 //        int admin = (Integer) panelWorkerAdmin.getValue();
-        String admin = (String) panelWorkerAdmin.getValue();
-        int administrator = 1;
-        if (admin.equalsIgnoreCase("Da")) {
-            administrator = 1;
-        } else {
-            if (admin.equalsIgnoreCase("Ne")) {
-                administrator = 0;
-            }
-        }
+        boolean admin = (boolean) panelWorkerAdmin.getValue();
 
-        Radnik radnik = new Radnik(id, name, surname, username, password, birthdate, address, telephone, administrator);
+        Radnik radnik = new Radnik(id, name, surname, username, password, birthdate, address, telephone, admin);
         return radnik;
     }
 

@@ -54,6 +54,7 @@ public class DialogAddProduct extends javax.swing.JDialog implements iFrmValue, 
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Dodaj proizvod");
 
         btnAddProduct.setBackground(new java.awt.Color(47, 60, 127));
         btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
