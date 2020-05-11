@@ -12,6 +12,7 @@ import domain.Karton;
 import domain.PoreskaStopa;
 import domain.Racun;
 import domain.Radnik;
+import domain.StavkaRacuna;
 import domain.iFrmValue;
 import events.ClickButtonEvent;
 import java.awt.Frame;
@@ -158,7 +159,8 @@ public class PanelAddBill extends javax.swing.JPanel implements iFrmValue, Custo
         BigDecimal ukupnaCenaBezPDV = new BigDecimal((String) panelBillTotalPriceNoTax.getValue());
         BigDecimal pdv = new BigDecimal(((PoreskaStopa) panelBillTax.getValue()).getVrednost() + "");
         radnik = controller.ClientController.getInstance().getRadnik();
-        Racun racun = new Racun(id, ukupnaCenaSaPDV, ukupnaCenaBezPDV, pdv, false, false, radnik, karton, datum);
+        List<StavkaRacuna> stavkeRacuna = new ArrayList<>();
+        Racun racun = new Racun(id, ukupnaCenaSaPDV, ukupnaCenaBezPDV, pdv, false, false, radnik, karton, datum, stavkeRacuna);
         return racun;
     }
 

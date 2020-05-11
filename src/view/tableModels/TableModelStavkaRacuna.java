@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  * @author anakl
  */
 public class TableModelStavkaRacuna extends AbstractTableModel {
-
+    
     private List<StavkaRacuna> stavkeRacuna;
     String[] columnNames = new String[]{"RB", "Naziv predmeta prodaje", "Količina", "Cena bez poreza", "Cena sa porezom", "Porez", "Ukupna cena bez poreza", "Ukupna cena sa porezom"};
 
@@ -69,6 +69,10 @@ public class TableModelStavkaRacuna extends AbstractTableModel {
 
     public StavkaRacuna getItemOfBill(int index) {
         return stavkeRacuna.get(index);
+    }
+    
+    public List<StavkaRacuna> getAllInvoiceItems(){
+        return stavkeRacuna;
     }
 
 }

@@ -30,7 +30,7 @@ import view.tableModels.TableModelStavkaRacuna;
  * @author anakl
  */
 public class DialogAddBill extends javax.swing.JDialog implements GenerateListener, ItemOfBillChooseListener {
-
+    
     private Racun racun;
     private StavkaRacuna stavka;
     private Radnik radnik;
@@ -219,7 +219,7 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         totalPriceWithTax = new BigDecimal(panelAddBill.getPanelBillTotalPriceTax().getValue() + "");
         totalPriceNoTax = totalPriceNoTax.subtract(stavkeRacuna.get(rowSelected).getUkupnaCenaBezPoreza());
         totalPriceWithTax = totalPriceWithTax.subtract(stavkeRacuna.get(rowSelected).getUkupnaCenaSaPorezom());
-
+        
         panelAddBill.getPanelBillTotalPriceNoTax().setValue(totalPriceNoTax + "");
         panelAddBill.getPanelBillTotalPriceTax().setValue(totalPriceWithTax + "");
         if (rowSelected != -1) {
@@ -231,15 +231,21 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         try {
             racun = (Racun) panelAddBill.getValue();
-            CommunicationController.getInstance().updateDomainObject(racun);
-            CommunicationController.getInstance().insertListDomainObject(stavkeRacuna);
-            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novi račun", "Uspeh",
-                    JOptionPane.INFORMATION_MESSAGE);
+            TableModelStavkaRacuna model = (TableModelStavkaRacuna) tableBillItems.getModel();
+            List<StavkaRacuna> stavkeRacuna = model.getAllInvoiceItems();
+            racun.setStavkeRacuna(stavkeRacuna);
+            racun.setObradjen(true);
+            racun = CommunicationController.getInstance().saveBillWithItems(racun);
+
+            //CommunicationController.getInstance().updateDomainObject(racun);
+            //CommunicationController.getInstance().insertListDomainObject(stavkeRacuna);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novi račun", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
             this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddBill.class.getName()).log(Level.SEVERE, null, ex);
+            racun.setObradjen(false);
             JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novi račun", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddActionPerformed
@@ -306,30 +312,30 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         panelAddBill.getPanelBillTotalPriceNoTax().setDisabledField();
         panelAddBill.getPanelBillTotalPriceTax().setDisabledField();
     }
-
+    
     public void clearPanel() {
         panelAddBill.clearPanel();
         stavkeRacuna.clear();
         tmsr.azuriraj(stavkeRacuna);
     }
-
+    
     @Override
     public DomainObject generateOdo(DomainObject domainObject) throws Exception {
         try {
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-
-            JOptionPane.showMessageDialog(null, "Sistem je kreirao novi račun.","Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            
+            JOptionPane.showMessageDialog(null, "Sistem je kreirao novi račun.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             btnAdd.setEnabled(true);
             btnClear.setEnabled(true);
-
+            
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novi račun.","Greška", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novi račun.", "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }
-
+    
     @Override
     public void onChooseItemOfBill(StavkaRacuna stavkaRacuna) {
         stavkaRacuna.setStavkaRacunaID(Long.valueOf(stavkeRacuna.size() + 1));
@@ -341,5 +347,5 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         stavkeRacuna.add(stavkaRacuna);
         tmsr.azuriraj(stavkeRacuna);
     }
-
+    
 }

@@ -339,4 +339,19 @@ public class CommunicationController {
         }
     }
 
+    public Racun saveBillWithItems(Racun racun) throws Exception {
+        RequestObject request = new RequestObject();
+        request.setOperation(Operation.OPERATION_SAVE_BILL_AND_BILL_ITEMS);
+
+        request.setData(racun);
+
+        sendRequest(request);
+        ResponseObject response = receiveResponse();
+
+        if (response.getException() != null) {
+            throw response.getException();
+        }
+        return (Racun) response.getData();
+    }
+
 }
