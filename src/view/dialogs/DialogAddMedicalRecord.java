@@ -142,8 +142,8 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
             karton.setZivotinja(zivotinja);
             karton.setRadnik(radnik);
             karton = (Karton) CommunicationController.getInstance().updateDomainObject(karton);
-            JOptionPane.showMessageDialog(null, "Uspesno insertovan karton pod brojem " + karton.getKartonID()
-                    + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novi karton.", "Uspeh",
+                    JOptionPane.INFORMATION_MESSAGE);
             panelAddMedicalRecord.clearPanel();
             btnAddMedicalRecord.setEnabled(false);
             btnExit.setEnabled(true);
@@ -151,6 +151,7 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddMedicalRecord.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novi karton.","Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddMedicalRecordActionPerformed
 
@@ -190,14 +191,13 @@ public class DialogAddMedicalRecord extends javax.swing.JDialog implements Gener
 
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
 
-            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
-                    "Uspeh", JOptionPane.INFORMATION_MESSAGE
-            );
+            JOptionPane.showMessageDialog(null, "Sistem je kreirao novi karton","Uspeh", JOptionPane.INFORMATION_MESSAGE);
             btnAddMedicalRecord.setEnabled(true);
 
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novi karton.","Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

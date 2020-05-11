@@ -51,6 +51,8 @@ public class PanelAddService extends javax.swing.JPanel implements iFrmValue, Cu
         panelPriceNoTax = new view.panel.components.PanelLTFS();
         panelPriceWithTax = new view.panel.components.PanelLTFS();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

@@ -104,8 +104,7 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
         try {
             radnik = (Radnik) panelAddWorker.getValue();
             radnik = (Radnik) CommunicationController.getInstance().updateDomainObject(radnik);
-            JOptionPane.showMessageDialog(null, "Uspesno insertovan radnik " + radnik.getIme()
-                    + " " + radnik.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novog radnika.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
 
             panelAddWorker.clearPanel();
             btnAdd.setEnabled(false);
@@ -114,6 +113,8 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novog radnik.!",
+                    "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -143,7 +144,7 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
 
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
 
-            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
+            JOptionPane.showMessageDialog(null, "Sistem je uspešno kreirao novog radnika.",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE
             );
             btnAdd.setEnabled(true);
@@ -152,6 +153,8 @@ public class DialogAddWorker extends javax.swing.JDialog implements GenerateList
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novog radnika.",
+                    "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

@@ -87,10 +87,11 @@ public class PanelSearchClient extends javax.swing.JPanel implements SearchListe
     public AbstractTableModel searchOdo(String criteria) throws Exception {
         try {
             klijenti = CommunicationController.getInstance().searchClientsWithCriteria(criteria);
-            JOptionPane.showMessageDialog(this, "Uspesno vraceni klijenti!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem je izvršio pretragu klijenata po zadatoj vrednosti.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             return new TableModelKlijent(klijenti);
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da nađe klijenta po zadatoj vrednosti.", "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

@@ -116,7 +116,7 @@ public class DialogAddService extends javax.swing.JDialog implements iFrmValue, 
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelAddService.clearPanel();
             btnAddService.setEnabled(false);
-            ((DialogAddStorage) this.getParent()).refreshTable();
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddProduct.class.getName()).log(Level.SEVERE, null, ex);

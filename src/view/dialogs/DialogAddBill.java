@@ -233,13 +233,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
             racun = (Racun) panelAddBill.getValue();
             CommunicationController.getInstance().updateDomainObject(racun);
             CommunicationController.getInstance().insertListDomainObject(stavkeRacuna);
-            JOptionPane.showMessageDialog(null, "Uspesno sačuvan račun!", "Uspeh",
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novi račun", "Uspeh",
                     JOptionPane.INFORMATION_MESSAGE);
             clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
             this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddBill.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novi račun", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -317,14 +318,14 @@ public class DialogAddBill extends javax.swing.JDialog implements GenerateListen
         try {
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
 
-            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + "!",
-                    "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je kreirao novi račun.","Uspeh", JOptionPane.INFORMATION_MESSAGE);
             btnAdd.setEnabled(true);
             btnClear.setEnabled(true);
 
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novi račun.","Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

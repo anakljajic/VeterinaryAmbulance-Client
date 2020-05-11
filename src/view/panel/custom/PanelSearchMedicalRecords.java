@@ -88,10 +88,11 @@ public class PanelSearchMedicalRecords extends javax.swing.JPanel implements Tab
     public AbstractTableModel searchOdo(String criteria) throws Exception {
         try {
             kartoni = CommunicationController.getInstance().searchMedicalRecordsWithCriteria(criteria);
-            JOptionPane.showMessageDialog(this, "Uspesno vraceni kartoni!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem je izvršio pretragu kartona po zadatoj vrednosti.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             return new TableModelKarton(kartoni);
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da nađe karton po zadatoj vrednosti.", "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

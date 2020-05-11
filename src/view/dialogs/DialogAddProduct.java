@@ -33,7 +33,7 @@ public class DialogAddProduct extends javax.swing.JDialog implements iFrmValue, 
         setLocationRelativeTo(null);
         prepareView();
     }
-    
+
     public DialogAddProduct() {
         initComponents();
         setLocationRelativeTo(null);
@@ -115,7 +115,7 @@ public class DialogAddProduct extends javax.swing.JDialog implements iFrmValue, 
                     + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelAddProduct.clearPanel();
             btnAddProduct.setEnabled(false);
-            ((DialogAddStorage) this.getParent()).refreshTable();
+            ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddProduct.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,29 +138,29 @@ public class DialogAddProduct extends javax.swing.JDialog implements iFrmValue, 
         panelAddProduct.addListener(this);
         this.getContentPane().setBackground(Color.WHITE);
     }
-    
+
     @Override
     public Object getValue() {
         return panelAddProduct.getValue();
     }
-    
+
     @Override
     public void setValue(Object object) {
         System.out.println("Not implemented");
     }
-    
+
     @Override
     public DomainObject generateOdo(DomainObject domainObject) throws Exception {
         try {
-            
+
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
-            
+
             JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE
             );
-            
+
             btnAddProduct.setEnabled(true);
-            
+
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);

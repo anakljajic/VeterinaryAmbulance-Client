@@ -190,8 +190,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
         try {
             klijent = (Klijent) panelAddClient.getValue();
             klijent = (Klijent) CommunicationController.getInstance().updateDomainObject(klijent);
-            JOptionPane.showMessageDialog(null, "Uspesno insertovan klijent " + klijent.getIme()
-                    + " " + klijent.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio novog klijenta.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
 
             panelAddAnimal.getPanelAnimalClientID().setValue(panelAddClient.getPanelClientID().getValue());
             panelAddClient.clearPanel();
@@ -202,6 +201,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
 
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novog klijenta.", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddClientActionPerformed
 
@@ -225,6 +225,8 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
             this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti novog klijenta!",
+                    "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddAnimalActionPerformed
 
@@ -297,7 +299,7 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
 
             DomainObject odo = CommunicationController.getInstance().generateDomainObject(domainObject);
 
-            JOptionPane.showMessageDialog(null, "Uspesno generisan " + odo.getTableName() + " !",
+            JOptionPane.showMessageDialog(null, "Sistem je kreirao novog klijenta.",
                     "Uspeh", JOptionPane.INFORMATION_MESSAGE
             );
             btnAddClient.setEnabled(true);
@@ -306,6 +308,8 @@ public class DialogAddClient extends javax.swing.JDialog implements GenerateList
             return odo;
         } catch (Exception ex) {
             Logger.getLogger(FrmMainWork.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da kreira novog klijenta.",
+                    "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

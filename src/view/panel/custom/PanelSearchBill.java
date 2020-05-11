@@ -86,10 +86,11 @@ public class PanelSearchBill extends javax.swing.JPanel implements TableDataList
     public AbstractTableModel searchOdo(String criteria) throws Exception {
         try {
             racuni = CommunicationController.getInstance().selectAllBillsFromDate(criteria);
-            JOptionPane.showMessageDialog(this, "Uspesno vraceni racuni!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem je pronašao račun po zadatoj vrednosti.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             return new TableModelRacun(racuni);
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da nađe račun po zadatoj vrednosti.", "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }
@@ -136,10 +137,12 @@ public class PanelSearchBill extends javax.swing.JPanel implements TableDataList
         try {
             racun = (Racun) odo;
             racun = (Racun) CommunicationController.getInstance().setStornoBill(odo);
+            JOptionPane.showMessageDialog(this, "Sistem je stornirao račun.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             updateTable();
 
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchBill.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da stornira račun.", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }
 

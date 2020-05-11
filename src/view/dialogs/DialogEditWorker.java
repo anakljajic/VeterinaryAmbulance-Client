@@ -104,14 +104,14 @@ public class DialogEditWorker extends javax.swing.JDialog {
         try {
             Radnik radnik = (Radnik) panelEditWorker.getValue();
             radnik = (Radnik) CommunicationController.getInstance().updateDomainObject(radnik);
-            JOptionPane.showMessageDialog(null, "Uspesno izmenjen klijent " + radnik.getIme()
-                    + " " + radnik.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio radnika.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditWorker.clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
 
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da zapamti radnika.", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

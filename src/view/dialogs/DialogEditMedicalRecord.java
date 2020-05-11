@@ -110,8 +110,7 @@ public class DialogEditMedicalRecord extends javax.swing.JDialog {
             karton.setZivotinja(zivotinja);
             karton.setRadnik(radnik);
             karton = (Karton) CommunicationController.getInstance().updateDomainObject(karton);
-            JOptionPane.showMessageDialog(null, "Uspesno izmenjen karton pod brojem " + karton.getKartonID()
-                    + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio karton.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditMedicalRecord.clearPanel();
             btnUpdate.setEnabled(false);
             ((FrmMainWork) this.getParent()).refreshActivePanel();
@@ -119,6 +118,7 @@ public class DialogEditMedicalRecord extends javax.swing.JDialog {
 
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Sistem ne može da zapamti karton.", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

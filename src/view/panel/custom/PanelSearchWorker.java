@@ -86,10 +86,11 @@ public class PanelSearchWorker extends javax.swing.JPanel implements TableDataLi
     public AbstractTableModel searchOdo(String criteria) throws Exception {
         try {
             radnici = CommunicationController.getInstance().searchWorkerWithCriteria(criteria);
-            JOptionPane.showMessageDialog(this, "Uspesno vraceni radnici!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem je izvršio pretragu radnika po zadatoj vrednosti.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             return new TableModelRadnik(radnici);
         } catch (Exception ex) {
             Logger.getLogger(PanelSearchWorker.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da nađe radnika po zadatoj vrednosti.", "Greška", JOptionPane.ERROR_MESSAGE);
             throw ex;
         }
     }

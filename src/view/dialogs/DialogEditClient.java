@@ -141,14 +141,14 @@ public class DialogEditClient extends javax.swing.JDialog {
         try {
             Klijent klijent = (Klijent) panelEditClient.getValue();
             klijent = (Klijent) CommunicationController.getInstance().updateDomainObject(klijent);
-            JOptionPane.showMessageDialog(null, "Uspesno izmenjen klijent " + klijent.getIme()
-                    + " " + klijent.getPrezime() + "!", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sistem je zapamtio klijenta.", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             panelEditClient.clearPanel();
             ((FrmMainWork) this.getParent()).refreshActivePanel();
             dispose();
             
         } catch (Exception ex) {
             Logger.getLogger(DialogAddClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da zapamti klijenta.", "Greška", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

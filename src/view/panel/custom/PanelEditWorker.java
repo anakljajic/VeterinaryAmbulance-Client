@@ -147,7 +147,7 @@ public class PanelEditWorker extends javax.swing.JPanel implements iFrmValue {
         Radnik radnik = (Radnik) object;
         panelWorkerID.setValue(radnik.getRadnikID() + "");
         panelWorkerAddress.setValue(radnik.getAdresa());
-        panelWorkerAdmin.setValue(String.valueOf(radnik.isAdministrator()));
+        panelWorkerAdmin.setValue(radnik.isAdministrator());
         panelWorkerName.setValue(radnik.getIme());
         panelWorkerSurname.setValue(radnik.getPrezime());
         panelWorkerUsername.setValue(radnik.getKorisnikoIme());
